@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<script type="text/javascript" src="js/crep.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>';
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</head>
 	<body>
 <?php require_once("topnavnar.php");?>
