@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>';
 	</head>
 	<body>
-<?php require_once("topnavbar.php");?>
+<?php require_once("topnavnar.php");?>
 		<div class="col-md-12 center-block">
 			<div class="col-md-3">
 <?php require_once("menu.php");?>
