@@ -1,3 +1,4 @@
+<br/> <br/> <br/>
 <table class="table table-striped table-bordered table-condensed">
 	<div class="panel_heading">
 	     <thead>
