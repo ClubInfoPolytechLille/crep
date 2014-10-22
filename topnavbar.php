@@ -5,7 +5,8 @@
   </div>
   <div class="collapse navbar-collapse">
   
-  <?php>
+
+  <?php
     if ( 1 == 1 )
       {    
         <form class="navbar-form navbar-right" role="search">
@@ -20,7 +21,7 @@
         </p>
       }
       </div>
-  <?>
+   ?>
   
   </div>
 </nav>
