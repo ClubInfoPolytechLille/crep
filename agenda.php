@@ -1,5 +1,5 @@
 <br/> <br/> <br/>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-responsive table-bordered table-condensed">
 	<div class="panel_heading">
 	     <thead>
 		<tr> 
@@ -14,7 +14,12 @@
 	 </div >
 	 <tbody>
 		<tr>
-			<td> </td>
+			<td> date </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
 		</tr>
 </table>
 
