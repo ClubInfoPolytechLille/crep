@@ -9,6 +9,8 @@
 		     <th> Mercredi </th>
 		     <th> Jeudi </th>
 		     <th> Vendredi </th>
+		     <th> Samedi </th>
+		     <th> Dimanche </th>
 		</tr>
 	     </thead>
 	 </div >
@@ -20,12 +22,6 @@
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
-		</tr>
-		<tr>
-			<td> date </td>
-			<td> jour </td>
-			<td> jour </td>
-			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
 		</tr>
@@ -36,6 +32,18 @@
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
+		</tr>
+		<tr>
+			<td> date </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
 		</tr>
 		<tr>
 			<td> date </td>
@@ -44,9 +52,13 @@
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
+			<td> jour </td>
+			<td> jour </td>
 		</tr>
 		<tr>
 			<td> date </td>
+			<td> jour </td>
+			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
