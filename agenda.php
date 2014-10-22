@@ -1,4 +1,4 @@
-<table class="table table-striped table condensed">
+<table class="table table-striped table-bordered table-condensed">
 	<div class="panel_heading">
 	     <thead>
 		<tr> 
@@ -11,5 +11,9 @@
 		</tr>
 	     </thead>
 	 </div >
+	 <tbody>
+		<tr>
+			<td> </td>
+		</tr>
 </table>
 
