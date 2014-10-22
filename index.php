@@ -19,7 +19,7 @@
 <?php require_once("menu.php");?>
 			</div>
 			<div class="col-md-9">
-<?php require_once("news.php");?>
+<?php require_once("agenda.php");?>
 			</div>
 		</div>
 	</body>
