@@ -2,6 +2,7 @@
 	<div class="panel_heading">
 	     <thead>
 		<tr> 
+		     <th/>
 		     <th> Lundi </th>
 		     <th> Mardi </th>
 		     <th> Mercredi </th>
