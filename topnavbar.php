@@ -7,7 +7,7 @@
     
     
       <?php
-        if ( 0 == 1 ) // modifier le test
+        if ( 1 == 1 ) // modifier le test
         {
           ?>
             <form class="navbar-form navbar-right" role="search">
