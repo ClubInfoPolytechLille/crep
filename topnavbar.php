@@ -31,10 +31,10 @@
           {
             ?>
               <p class="navbar-text navbar-right">Bienvenue, 
-                <a href="#identifient" class="navbar-link">test de modification</a> <!-- modifier "NOM DE LA PERSONNE" par celui qui s inscris + ajouter un lien aller au profil ? -->
+                <a href="#identifient" class="navbar-link">NOM DE LA PERSONNE</a> <!-- modifier "NOM DE LA PERSONNE" par celui qui s inscris + ajouter un lien aller au profil ? -->
                 <?php
                   //echo $nom ;
-                >
+                ?>
               </p>
             <?php
           }
