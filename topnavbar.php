@@ -11,7 +11,7 @@
         {
           ?>
             <form class="navbar-form navbar-right" role="search">
-              <input type="submit" value="Inscription" name="lien_Inscription/" /><br /> <!-- ajouter un lien pour s inscrire  -->
+              <input type="submit" value="Inscription" name="lien_Inscription" /><br /> <!-- ajouter un lien pour s inscrire  -->
               <input type="submit" value="Connection" name="lien_Connection" /><br /> <!-- ajouter un lien pour se connecter -->
             </form>
           <?php
