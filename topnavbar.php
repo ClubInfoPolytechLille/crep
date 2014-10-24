@@ -21,8 +21,9 @@
           if ( 1 == 1 )
           {
             ?>
-              <form action="prog.php" method=POST>
-                <input type="text" name="identifient" /><br />
+              <form class="navbar-form navbar-right" action="prog.php" method=POST>
+                <input type="text" placeholder="identifient" name="identifient" /><br />
+                <input type="text" placeholder="mot de passe" name="mot_de_passe" /><br /> <!-- mettre des ***** quand on entre le mot de passe  -->
                 <input type="submit" value="se connecter" />
               </form>
             <?php
