@@ -11,8 +11,8 @@
         {
           ?>
             <form class="navbar-form navbar-right" role="search">
-              <input type="submit" value="Inscription" name="https://www.google.fr/" /><br /> <!-- ajouter un lien pour s inscrire  -->
-              <input type="submit" value="Connection" name="Connection" /><br /> <!-- ajouter un lien pour se connecter -->
+              <input type="submit" value="Inscription" name="lien_Inscription/" /><br /> <!-- ajouter un lien pour s inscrire  -->
+              <input type="submit" value="Connection" name="lien_Connection" /><br /> <!-- ajouter un lien pour se connecter -->
             </form>
           <?php
         }
@@ -22,8 +22,8 @@
           {
             ?>
               <form class="navbar-form navbar-right" action="prog.php" method=POST>
-                <input type="text" placeholder="identifient" name="identifient" /><br />
-                <input type="text" placeholder="mot de passe" name="mot_de_passe" /><br /> <!-- mettre des ***** quand on entre le mot de passe  -->
+                <input type="text" placeholder="identifient" name="lien_identifient" /><br />
+                <input type="text" placeholder="mot de passe" name="lien_mot_de_passe" /><br /> <!-- mettre des ***** quand on entre le mot de passe  -->
                 <input type="submit" value="se connecter" />
               </form>
             <?php
