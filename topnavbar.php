@@ -11,14 +11,14 @@
         {
           ?>
             <form class="navbar-form navbar-right" role="search">
-              <input type="text" placeholder="Inscription" name="https://www.google.fr/" /><br /><!-- ajouter un lien pour s inscrire  -->
-              <input type="text" placeholder="Connection" name="Connection" /><br /><!-- ajouter un lien pour se connecter -->
+              <input type="text" placeholder="Inscription" name="https://www.google.fr/" /><br /> <!-- ajouter un lien pour s inscrire  -->
+              <input type="text" placeholder="Connection" name="Connection" /><br /> <!-- ajouter un lien pour se connecter -->
             </form>
           <?php
         }
         else
         {
-          if ( 1 == 1 )
+          if ( 0 == 1 )
           {
             ?>
               <form class="navbar-form navbar-right" action="prog.php" method=POST>
