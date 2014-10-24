@@ -11,8 +11,8 @@
         {
           ?>
             <form class="navbar-form navbar-right" role="search">
-              <input type="text" placeholder="Inscription" name="https://www.google.fr/" /><br /> <!-- ajouter un lien pour s inscrire  -->
-              <input type="text" placeholder="Connection" name="Connection" /><br /> <!-- ajouter un lien pour se connecter -->
+              <input type="submit" value="Inscription" name="https://www.google.fr/" /><br /> <!-- ajouter un lien pour s inscrire  -->
+              <input type="submit" value="Connection" name="Connection" /><br /> <!-- ajouter un lien pour se connecter -->
             </form>
           <?php
         }
