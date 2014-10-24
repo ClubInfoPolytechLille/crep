@@ -7,7 +7,7 @@
     
     
       <?php
-        if ( 1 == 1 ) // modifier le test
+        if ( 0 == 1 ) // modifier le test par un switch
         {
           ?>
             <form class="navbar-form navbar-right" role="search">
@@ -18,7 +18,7 @@
         }
         else
         {
-          if ( 0 == 1 )
+          if ( 1 == 1 )
           {
             ?>
               <form class="navbar-form navbar-right" action="prog.php" method=POST>
