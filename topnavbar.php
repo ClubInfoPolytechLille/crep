@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" onClick="document.location.reload();" href="#">CREP</a> <!-- ajouter message [Coupe de Robotique des Ecoles Primaires] quand la souris passe -->
+      <a class="navbar-brand" onClick="document.location.reload();" href="#">Coupe de Robotique des Ecoles Primaires</a> <!-- ajouter message [Coupe de Robotique des Ecoles Primaires] quand la souris passe -->
     </div>
     <div class="collapse navbar-collapse">
       <?php
