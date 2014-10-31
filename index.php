@@ -22,7 +22,7 @@ require_once("creds.php");
 			<div class="col-md-3">
 <?php require_once("menu.php");?>
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-9" id="mainContainer">
 <?php require_once("agenda.php");?>
 			</div>
 		</div>
