@@ -8,7 +8,7 @@
         if (isset($_SESSION["connected"]) && $_SESSION["connected"])
 		echo '<p class="navbar-text navbar-right">Bienvenue, <a href="#identifiant" class="navbar-link">'.$_SESSION["name"].'</a></p>';
 	else
-		echo '<p class="navbar-text navbar-right"><a href="#identifiant" class="navbar-link">Se connecter</a></p>';
+		echo '<p class="navbar-text navbar-right"><a href="#identifiant" class="navbar-link" onClick="loadNewDoc(\'connect.php\');">Se connecter</a></p>';
       ?>
     </div>
   </div>
