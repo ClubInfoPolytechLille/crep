@@ -12,6 +12,7 @@ require_once("creds.php");
 		<meta name="author" content="Club Informatique de PolytechLille">
 		<title>Site Web de la Coupe de Robotique des Ecoles Primaires</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/crep.css">
 		<script type="text/javascript" src="js/crep.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
