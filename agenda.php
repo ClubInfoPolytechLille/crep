@@ -1,4 +1,3 @@
-<br/> <br/> <br/>
 <center><table class="table table-striped table-responsive table-bordered">
 	<div class="panel_heading">
 	     <thead>
