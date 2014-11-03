@@ -1,14 +1,11 @@
 <div class="jumbotron">
 <?php 
         require_once("creds.php");
-	$serveur=MYSQL_HOSTNAME;
-	$user=MYSL_USER;
-	$password=MYSQL_PASSWORD;
-	$link = mysql_connect($serveur, $user, $password)
+	$link = mysql_connect(MYSQL_HOSTNAME, MYSQL_USER, MYSQL_PASSWORD)
 		or die("Impossible de se connecter : " . mysql_error());
 	echo 'Connexion réussie';
 	
-	$requete=;
+	$requete="";
 	$resultat = mysql_query($requete);
 	
 	//Pour debugger
