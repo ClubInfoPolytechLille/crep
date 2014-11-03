@@ -1,7 +1,7 @@
 <div class="jumbotron">
 <?php 
         require_once("creds.php");
-	$link = mysql_connect(MYSQL_HOSTNAME, MYSQL_USER, MYSQL_PASSWORD)
+	$link = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USER__, __MYSQL_PASSWORD__)
 		or die("Impossible de se connecter : " . mysql_error());
 	echo 'Connexion réussie';
 	
