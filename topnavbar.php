@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" onClick="document.location.reload();" data-toggle="tooltip" data-placement="bottom" title="Afficher la page d'accueil">Tooltip on bottom href="#">Coupe de Robotique des Ecoles Primaires</a>
+      <a class="navbar-brand" onClick="document.location.reload();" data-toggle="tooltip" data-placement="bottom" title="Afficher la page d'accueil" href="#">Coupe de Robotique des Ecoles Primaires</a> 
     </div>
     <div class="collapse navbar-collapse">
       <?php
