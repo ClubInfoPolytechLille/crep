@@ -9,7 +9,7 @@
 		exit;
 	}
 	
-	$requete = "select title content user.name as userName from news, user where news.fk_author==user.pk;";
+	$requete = "select title content user.realname as userName from news, user where news.fk_author==user.pk;";
 	$resultat = mysql_query($requete);
 	
 	//Pour debugger
