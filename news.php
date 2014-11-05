@@ -2,7 +2,7 @@
 	require_once("creds.php");
 	$link = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__)
 		or die("Impossible de se connecter : " . mysql_error());
-	echo 'Connexion reussie';
+	
 	
 	if(!mysql_select_db('crep', $link)){
 		echo 'Selection de la base de donnees impossible';
@@ -32,8 +32,7 @@
 		echo '</div></div>';
 	}
 	
-	//On libere l'espace de resultat.
-	mysql_free_result($result);
+	//On libere l'espace de resultat
 	mysql_close($link);
 ?>
 
