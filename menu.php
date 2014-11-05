@@ -7,6 +7,9 @@
 			<a href="#" onClick="file('agenda.php')">Agenda</a>
 		</li>
 		<li>
+			<a href="#" onClick="file('orga.php')">Organisation</a>
+		</li>
+		<li>
 			<a href="#" onClick="file('connect.php')">Connexion</a>
 		</li>
 	</ul>
