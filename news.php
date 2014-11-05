@@ -2,10 +2,10 @@
 	require_once("creds.php");
 	$link = mysql_connect(MYSQL_HOSTNAME, MYSQL_USERNAME, MYSQL_PASSWORD)
 		or die("Impossible de se connecter : " . mysql_error());
-	echo 'Connexion réussie';
+	echo 'Connexion reussie';
 	
 	if(!mysql_select_db('crep', $link)){
-		echo 'Selection de la base de données impossible';
+		echo 'Selection de la base de donnees impossible';
 		exit;
 	}
 	
@@ -14,8 +14,8 @@
 	
 	//Pour debugger
 	if (!$resultat) {
-		$message  = 'Requête invalide : ' . mysql_error() . "\n";
-		$message .= 'Requête complète : ' . $query;
+		$message  = 'Requete invalide : ' . mysql_error() . "\n";
+		$message .= 'Requete complete : ' . $query;
 		die($message);
 	}
 	
