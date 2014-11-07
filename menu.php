@@ -1,7 +1,7 @@
 <div class="well well-sm" role="complementary">
 	<ul class="nav">
 		<li>
-			<a href="#" onClick="loadNewDoc('news.php');">News</a>
+			<a href="#news" onClick="loadNewDoc('news.php');">News</a>
 		</li>
 		<li>
 			<a href="#" onClick="loadNewDoc('agenda.php');">Agenda</a>
