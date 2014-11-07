@@ -9,21 +9,23 @@
 		<li>
 			<a href="#" onClick="loadNewDoc('orga.php');">Organisation</a>
 		</li>
-		<?php
+	<?php
 		if (!(isset($_SESSION["connected"]) && $_SESSION["connected"]))
 		{
-		?>
-		<li>
-			<a href="#" onClick="loadNewDoc('connect.php');">Connexion</a>
-		</li>
-		<?php
+	?>
+			<li>
+				<a href="#" onClick="loadNewDoc('connect.php');">Connexion</a>
+			</li>
+	<?php
 		}
-		?>
+		else
+		{
+	?>
 		<li>
 			<a href="#" onClick="loadNewDoc('???????.php;)">Profil</a>
 		</li>
-		<?php
+	<?php
 		}
-		?>
+	?>
 	</ul>
 </div>
