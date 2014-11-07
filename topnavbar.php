@@ -2,11 +2,12 @@
   <div class="container">
     <div class="navbar-header">
       
-      <a href="#" class="thumbnail" onClick="document.location.reload();">
-        <img data-src="logo-895x1030.jpg/895x1030" alt=".....">
+      <a class="thumbnail" onClick="document.location.reload();" href="#">
+        <img data-src="logo-895x1030.jpg/895x1030" alt="...">
       </a>
       
-      <a class="navbar-brand" onClick="document.location.reload();" data-toggle="tooltip" data-placement="bottom" title="Afficher la page d'accueil" href="#">Coupe de Robotique des Ecoles Primaires</a> 
+      <a class="navbar-brand" onClick="document.location.reload();" data-toggle="tooltip" data-placement="bottom" title="Afficher la page d'accueil" href="#">
+        <img data-src="logo-895x1030.jpg/895x1030" alt="...">Coupe de Robotique des Ecoles Primaires</a> 
     </div>
     <div class="collapse navbar-collapse">
       <?php
