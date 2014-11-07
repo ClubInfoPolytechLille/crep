@@ -1,16 +1,4 @@
-<form class="form-horizontal" role="form">
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> TEST
-        </label>
-      </div>
-    </div>
-  </div>
-
-</form>
+<h2> News </h2>
 
 <?php 
 	require_once("creds.php");
