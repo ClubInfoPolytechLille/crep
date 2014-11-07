@@ -8,9 +8,9 @@
   </div>
 
   <div class="form-group">
-    <label class="sr-only" for="entrer_mot_de_passe_3">Mot de passe</label> <!-- "col-sm-2 control-label" ou "sr-only" -->
+    <label class="col-sm-2 control-label" for="entrer_mot_de_passe_3">Mot de passe</label>
     <div class="col-sm-10">
-      <input type="mot de passe" class="form-control" id="entrer_mot_de_passe_3" placeholder="Votre mot de passe">
+      <input type="password" class="form-control" id="entrer_mot_de_passe_3" placeholder="Votre mot de passe">
     </div>
   </div>
   
@@ -32,3 +32,7 @@
   
 </form>
 
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword2">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+  </div>
