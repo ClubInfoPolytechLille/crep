@@ -17,7 +17,7 @@
 	 </div >
 	 <tbody>
 		<tr>
-			<td> date </td>
+			<th> date </th>
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
@@ -27,7 +27,7 @@
 			<td> jour </td>
 		</tr>
 		<tr>
-			<td> date </td>
+			<th> date </th>
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
@@ -37,7 +37,7 @@
 			<td> jour </td>
 		</tr>
 		<tr>
-			<td> date </td>
+			<th> date </th>
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
@@ -47,7 +47,7 @@
 			<td> jour </td>
 		</tr>
 		<tr>
-			<td> date </td>
+			<th> date </th>
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
@@ -57,7 +57,7 @@
 			<td> jour </td>
 		</tr>
 		<tr>
-			<td> date </td>
+			<th> date </th>
 			<td> jour </td>
 			<td> jour </td>
 			<td> jour </td>
