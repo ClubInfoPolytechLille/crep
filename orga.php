@@ -17,12 +17,12 @@ if ($r_voir) {
 <form id="nvEv">
 	<label for="nom">Nom :</label><br/><input type="text" name="nom"><br/>
 	<label for="desc">Description :</label><br/><textarea name="desc"></textarea><br/>
-	<h3>Dates proposées</h3>
+	<h4>Dates proposées</h4>
 	<div id="nvEvDates">
 		Pas de date proposée pour l'instant.
 	</div>
 	<form id="nvDate" action="#">
-		<h4>Proposer une date</h4>
+		<h5>Proposer une date</h5>
 		<label for="nvDateDate">Date :</label><br/><input type="datetime"name="nvDateDate"/><br/>
 		<label for="nvDateDuree">Durée :</label><br/><input type="time"name="nvDateDuree"/><br/>
 		<input class="btn btn-default" type="submit" value="Proposer la date">
@@ -32,14 +32,14 @@ if ($r_voir) {
 <?php
 		}
 ?>
-<h2>Évènements à planifier</h2>
+<h3>Évènements à planifier</h3>
 <div class="ev">
 
 </div>
 <?php
 	}
 ?>
-<h2>Évènements fixés</h2>
+<h3>Évènements fixés</h3>
 <?php
 } else {
 ?>
