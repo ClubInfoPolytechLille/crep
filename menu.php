@@ -10,7 +10,7 @@
 			<a href="#" onClick="loadNewDoc('orga.php');">Organisation</a>
 		</li>
 		<li>
-			<a href="#" onClick="loadNewDoc('\connect.php\);">Connexion</a>
+			<a href="#" onClick="loadNewDoc('connect.php');">Connexion</a>
 		</li>
 		<li>
 			<a href="#identifiant" onClick="loadNewDoc(\'connect.php\');">Se connecter</a>
