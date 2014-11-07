@@ -1,4 +1,4 @@
-<h2> Conexion </h2>
+<h2> Connexion </h2>
 
 <form class="form-horizontal" role="form">
   
