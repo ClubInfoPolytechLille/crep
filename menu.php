@@ -13,7 +13,7 @@
 			<a href="#" onClick="loadNewDoc('\connect.php\);">Connexion</a>
 		</li>
 		<li>
-			<a href="#identifiant" class="navbar-link" onClick="loadNewDoc(\'connect.php\');">Se connecter</a>
+			<a href="#identifiant" onClick="loadNewDoc(\'connect.php\');">Se connecter</a>
 		</li>
 	</ul>
 </div>
