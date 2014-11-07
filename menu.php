@@ -14,7 +14,7 @@
 		{
 	?>
 			<li>
-				<a href="#identifiant" onClick="loadNewDoc('connect.php');">Connexion</a>
+				<a href="#connexion" onClick="loadNewDoc('connect.php');">Connexion</a>
 			</li>
 	<?php
 		}
