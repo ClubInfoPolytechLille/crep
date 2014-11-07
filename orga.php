@@ -13,7 +13,7 @@ if ($r_voir) {
 	if ($r_vote) {
 		if ($r_proposer) {
 ?>
-<h2>Ajouter un évènement</h2>
+<h3>Ajouter un évènement</h3>
 <form id="nvEv">
 	<label for="nom">Nom :</label><br/><input type="text" name="nom"><br/>
 	<label for="desc">Description :</label><br/><textarea name="desc"></textarea><br/>
