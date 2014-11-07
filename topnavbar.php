@@ -2,7 +2,7 @@
   <div class="container">
     <div class="navbar-header">
       
-      <a href="#" class="thumbnail">
+      <a href="#" class="thumbnail" onClick="document.location.reload();">
         <img data-src="holder.js/100%x180" alt="...">
       </a>
       
