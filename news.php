@@ -1,3 +1,17 @@
+<form class="form-horizontal" role="form">
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> TEST
+        </label>
+      </div>
+    </div>
+  </div>
+
+</form>
+
 <?php 
 	require_once("creds.php");
 	$link = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__)
