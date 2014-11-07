@@ -10,7 +10,7 @@
 			<a href="#" onClick="loadNewDoc('orga.php');">Organisation</a>
 		</li>
 	<?php
-		if (!(isset($_SESSION["connected"]) && $_SESSION["connected"]))
+		if ((isset($_SESSION["connected"]) && $_SESSION["connected"]))
 		{
 	?>
 			<li>
