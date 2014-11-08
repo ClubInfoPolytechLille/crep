@@ -1,14 +1,24 @@
-<h2> Organisation </h2>
+<h3> Organisation </h3>
 
 <?php
 
+$time = time();
+
 # DEBUG
 # e_ : est
-$e_connecte = false;
+$e_connecte = true;
 $e_modo = true;
 
-$droits  = array('voir', 'voter', 'ajouter', 'proposer', 'annuler', 'supprimer', 'modifier', 'valider');
-$time = time();
+if ($e_connecte) {
+    if ($e_modo) {
+        $droits  = array('voir', 'voter', 'ajouter', 'proposer', 'annuler', 'supprimer', 'modifier', 'valider');
+    } else {
+        $droits = array('voir', 'voter');
+    }
+} else {
+    $droits = array('voir');
+}
+
 
 class Evenement
 {
@@ -26,26 +36,30 @@ class Evenement
     public $datesVotes = array();
 
     public function html() {
-        $html = '   <li class="list-group-item">';
+        $html = '<li class="list-group-item';
+        if ($this->annule) {
+            $html .= ' list-group-item-danger';
+        }
+        $html .= '">';
 
         # Titre
-        $html .= '<h3 class="list-group-item-heading">'.$this->nom;
+        $html .= '<h4 class="list-group-item-heading">'.$this->nom;
         if ($this->p_annuler()) {
-            $html .= ' <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span></button>';
+            $html .= ' <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon glyphicon-remove"></span> Annuler</button>';
         }
         if ($this->p_supprimer()) {
-            $html .= ' <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-trash"></span></button>';
+            $html .= ' <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-trash"></span> Supprimer</button>';
         }
-        $html .= '</h3>';
+        $html .= '</h4>';
 
         # Description
         $html .= '<div class="panel panel-default">';
         $html .= '<div class="panel-heading">';
-        $html .= '<h4 class="panel-title">Description';
+        $html .= '<h5 class="panel-title">Informations';
         if ($this->p_modifier()) {
-            $html .= ' <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>';
+            $html .= ' <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Modifier</button>';
         }
-        $html .= '</h4>';
+        $html .= '</h5>';
         $html .= '</div>';
         $html .= '<div class="panel-body">';
         $html .= '<p>';
@@ -62,7 +76,7 @@ class Evenement
         }
         $html .= '</p>';
         if ($this->annule) {
-            $html .= '<p class="alert alert-danger" role="alert">Annulé</p>';
+            $html .= '<p><span class="label label-danger">Annulé</span></p>';
 
         }
         $html .= '</div>';
@@ -72,13 +86,16 @@ class Evenement
         if (!$this->valide && !$this->annule) {
             $html .= '<div class="panel panel-default">';
             $html .= '<div class="panel-heading">';
-            $html .= '<h4 class="panel-title">Dates possibles';
+            $html .= '<h5 class="panel-title">Dates possibles';
             if ($this->p_proposer()) {
-                $html .= ' <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>';
+                $html .= ' <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Proposer une date</button>';
             }
-            $html .= '</h4>';
+            $html .= '</h5>';
             $html .= '</div>';
             $html .= '<div class="panel-body">';
+            if ($this->p_voter()) {
+                $html .= '<p>Sélectionnez les dates qui vous conviennent.</p>';
+            }
             $html .= '<div class="list-group">';
             $time = time();
             foreach ($this->dates as $dateIndex => $date) {
@@ -125,13 +142,19 @@ class Evenement
         return in_array('modifier', $droits);
     }
 
+    function p_voter() {
+        global $droits;
+        return in_array('voter', $droits) && !$this->valide;
+    }
+
     function p_proposer() {
         global $droits;
-        return in_array('proposer', $droits);
+        return in_array('proposer', $droits) && !$this->valide;
     }
 
     function p_valider() {
         global $droits;
+        # TODO Et si un nombre suffisant de personnes est ok avec la date la plus disponible 
         return in_array('valider', $droits) && !$this->valide;
     }
 
@@ -204,11 +227,19 @@ foreach ($evenements as $evenement) {
 
 ?>
 
-<h1>Évènements</h1>
-
-<h2>Plannifiés <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button></h2>
+<?php
+if (!$e_connecte) {
+?>
+<div class="alert alert-warning" role="alert">Connectez-vous afin de pouvoir agir sur les évènements.</div>
+<?php    
+}
+?>
+<?php
+if (in_array('voir', $droits)) {
+?>
+<h3>Évènements plannifiés <?php if (in_array('ajouter', $droits)) { ?><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un évènement avec une date fixée</button><?php } ?></h3>
 <ul class="list-group">
-<?
+<?php
 foreach ($evenementsPlanifies as $evenement) {
     echo $evenement->html();
 }
@@ -216,9 +247,9 @@ foreach ($evenementsPlanifies as $evenement) {
 </ul>
 
 
-<h2>À plannifier <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button></h2>
+<h3>Évènements à plannifier <?php if (in_array('ajouter', $droits)) { ?><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un évènement avec une date à choisir</button><?php } ?></h3>
 <ul class="list-group">
-<?
+<?php
 foreach ($evenementsAPlanifier as $evenement) {
     echo $evenement->html();
 }
@@ -226,11 +257,19 @@ foreach ($evenementsAPlanifier as $evenement) {
 </ul>
 
 
-<h2>Évènements passés</h2>
+<h3>Évènements passés</h3>
 <ul class="list-group">
-<?
+<?php
 foreach ($evenementsPasses as $evenement) {
     echo $evenement->html();
 }
 ?>
 </ul>
+
+<?php
+} else {
+?>
+<div class="alert alert-danger" role="alert">Vous ne pouvez pas voir les évènements.</div>
+<?php
+}
+?>
