@@ -30,9 +30,6 @@ class Evenement
 
         # Titre
         $html .= '<h3 class="list-group-item-heading">'.$this->nom;
-        if ($this->annule) {
-            $html .= ' <span class="label label-danger">Annulé</span>';
-        }
         if ($this->p_annuler()) {
             $html .= ' <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span></button>';
         }

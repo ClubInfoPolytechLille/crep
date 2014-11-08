@@ -10,9 +10,14 @@
   </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label" for="entrer_mot_de_passe_3">Mot de passe</label> <!-- ajouter la posibilité d'afficher le mot de passe  -->
+    <label class="col-sm-2 control-label" for="entrer_mot_de_passe_3">Mot de passe</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="entrer_mot_de_passe_3" placeholder="Votre mot de passe">
+      <div class="input-group">
+        <input type="password" class="form-control" id="entrer_mot_de_passe_3" placeholder="Votre mot de passe">
+        <span class="input-group-btn">
+          <button id="afficherMotDePasse" type="button" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-eye-open"></span> Afficher</button>
+        </span>
+      </div>
     </div>
   </div>
   
@@ -20,7 +25,7 @@
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
         <label>
-          <input type="checkbox"> Rester connecter
+          <input type="checkbox">Rester connecté
         </label>
       </div>
     </div>
@@ -34,3 +39,8 @@
   
 </form>
 
+<script type="text/javascript">
+  // Affiche le mot de passe 
+  document.getElementById('afficherMotDePasse').addEventListener('mousedown', function() {document.getElementById('entrer_mot_de_passe_3').type = 'text'})
+  document.addEventListener('mouseup', function() {document.getElementById('entrer_mot_de_passe_3').type = 'password'})
+</script>
