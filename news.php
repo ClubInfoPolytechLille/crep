@@ -2,7 +2,7 @@
 
 echo "<h2> News ";
 if(isset($_SESSION["admin"])&&$_SESSION["admin"])
-	echo '<span class="label label-primary"><span class="glyphicon glyphicon-plus"></span> Nouvel article</span>';
+	echo '<h3><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Nouvel article</button></h3>';
 echo "</h2>";
 
 $link = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__)
