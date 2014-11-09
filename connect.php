@@ -46,5 +46,15 @@ $('#afficherMotDePasse')[0].addEventListener('mouseup', function()
 $('#validCreds')[0].addEventListener('click', function()
 {
 	$("#validCreds")[0].disabled=true;
+	var checkPath = "checkCreds.php?user=";
+	checkCreds += $("#Entrer_Identifiant_3")[0].value;
+	checkCreds += "&pass=";
+	checkCreds += Whirlpool($("#entrer_mot_de_passe_3")[0].value);
+	ret = file(checkCreds);
+	if(ret=="yep")
+		document.location.reload();
+	else
+		alert("Mauvais identifiants");
+	$("#validCreds")[0].disabled=false;
 });
 </script>
