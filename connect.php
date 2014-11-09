@@ -1,5 +1,5 @@
 <h2> Connexion </h2>
-<form class="form-horizontal" role="form">  
+<form class="form-horizontal" role="form" id="connectForm">
   <div class="form-group">
     <label for="entrer_Identifiant_3" class="col-sm-2 control-label">Identifiant</label>
     <div class="col-sm-10">
@@ -19,7 +19,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button id="validCreds" type="submit" class="btn btn-primary">Se connecter</button>
+      <button id="validCreds" type="submit" class="btn btn-primary" onclick="return false;">Se connecter</button>
     </div>
   </div>
 </form>
@@ -34,7 +34,7 @@ $('#afficherMotDePasse')[0].addEventListener('mouseup', function()
 {
 	$('#entrer_mot_de_passe_3')[0].type = 'password';
 });
-$('#validCreds')[0].addEventListener('click', function()
+$('#connectForm')[0].addEventListener('submit', function()
 {
 	$("#validCreds")[0].disabled=true;
 	var checkPath = "checkCreds.php?user=";
