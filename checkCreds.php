@@ -1,4 +1,5 @@
 <?php
+require_once("creds.php");
 
 if(!(isset($_GET["user"])&&isset($_GET["pass"])))
 	die("Nop");
