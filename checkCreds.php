@@ -15,7 +15,7 @@ $resultat = mysql_query($requete);
 if (!$resultat)
 	die("Nop");
 	
-if(row = mysql_fetch_assoc($resultat))
+if($row = mysql_fetch_assoc($resultat))
 	echo 'Yep';
 else
 	echo 'Nop';
