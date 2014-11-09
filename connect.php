@@ -39,11 +39,11 @@ $("#afficherMotDePasse")[0].addEventListener('mousedown', function()
 {
 	$('#entrer_mot_de_passe_3')[0].type = 'text';
 });
-$('#afficherMotDePasse').addEventListener('mouseup', function()
+$('#afficherMotDePasse')[0].addEventListener('mouseup', function()
 {
 	$('#entrer_mot_de_passe_3')[0].type = 'password';
 });
-$('#validCreds')addEventListener('click', function()
+$('#validCreds')[0].addEventListener('click', function()
 {
 	$("#validCreds")[0].disabled=true;
 });
