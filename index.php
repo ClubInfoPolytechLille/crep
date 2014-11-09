@@ -17,6 +17,7 @@ require_once("creds.php");
 		<script type="text/javascript" src="js/crep.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/whirlpool.min.js"></script>
 	</head>
 	<body>
 <?php require_once("topnavbar.php");?>
