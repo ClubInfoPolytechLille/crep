@@ -1,6 +1,10 @@
 <?php
 require_once("creds.php");
 
+echo "<pre>";
+var_dump($_GLOBALS);
+echo "</pre>";
+
 if(!(isset($_GET["user"])&&isset($_GET["pass"])))
 	die("Nop");
 
