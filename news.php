@@ -2,7 +2,7 @@
 
 echo "<h2> News ";
 if(isset($_SESSION["admin"])&&$_SESSION["admin"])
-	echo '<h3><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Nouvel article</button></h3>';
+	echo '<h3><button type="button" class="btn btn-primary" onClick="addNews();"><span class="glyphicon glyphicon-plus"></span> Nouvel article</button></h3>';
 echo "</h2>";
 
 $link = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__)
@@ -14,7 +14,7 @@ if(!mysql_select_db('crep', $link)){
 	exit;
 }
 	
-$requete = "select title, content, users.realname as userName from news, users where news.fk_author=users.pk;";
+$requete = "select news.pk as pk, title, content, users.realname as userName from news, users where news.fk_author=users.pk;";
 $resultat = mysql_query($requete);
 	
 //Pour debugger
@@ -27,7 +27,10 @@ if (!$resultat) {
 while ($row = mysql_fetch_assoc($resultat)) {
 	echo '<div class="panel panel-default">';
 	echo '<div class="panel-heading">';
-	echo '<h3 class="panel-title">'.$row['title'].'</h3>';
+	echo '<h3 class="panel-title">'.$row['title'];
+	if(isset($_SESSION["admin"])&&$_SESSION["admin"])
+		echo '<a href="#" onclick="editNews('.$row["pk".')" class="glyphicon glyphicon-pencil"></span>';
+	echo '</h3>';
 	echo '</div>';
 	echo '<div class="panel-body">';
 	echo '<p>'.$row['content'].'</p>';
