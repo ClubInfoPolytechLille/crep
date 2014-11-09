@@ -19,7 +19,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button id="validCreds" type="submit" class="btn btn-primary" onclick="return false;">Se connecter</button>
+      <button id="validCreds" type="submit" class="btn btn-primary">Se connecter</button>
     </div>
   </div>
 </form>
