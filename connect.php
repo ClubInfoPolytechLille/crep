@@ -34,7 +34,7 @@ $('#afficherMotDePasse')[0].addEventListener('mouseup', function()
 {
 	$('#entrer_mot_de_passe_3')[0].type = 'password';
 });
-$('#connectForm')[0].addEventListener('submit', function()
+$('#connectForm')[0].submit(function(event)
 {
 	$("#validCreds")[0].disabled=true;
 	var checkPath = "checkCreds.php?user=";
@@ -46,5 +46,6 @@ $('#connectForm')[0].addEventListener('submit', function()
 	else
 		alert("Mauvais identifiants");
 	$("#validCreds")[0].disabled=false;
+	event.preventDefault();
 });
 </script>
