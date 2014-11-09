@@ -29,7 +29,7 @@ while ($row = mysql_fetch_assoc($resultat)) {
 	echo '<div class="panel-heading">';
 	echo '<h3 class="panel-title">'.$row['title'];
 	if(isset($_SESSION["admin"])&&$_SESSION["admin"])
-		echo '<a href="#" onclick="editNews('.$row["pk"].')" class="glyphicon glyphicon-pencil"></a>';
+		echo ' <a href="#" onclick="editNews('.$row["pk"].')" class="glyphicon glyphicon-pencil"></a>';
 	echo '</h3>';
 	echo '</div>';
 	echo '<div class="panel-body">';
