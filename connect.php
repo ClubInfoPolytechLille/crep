@@ -51,7 +51,7 @@ $('#validCreds')[0].addEventListener('click', function()
 	checkPath += "&pass=";
 	checkPath += Whirlpool($("#entrer_mot_de_passe_3")[0].value);
 	ret = file(checkPath);
-	if(ret=="yep")
+	if(ret=="Yep")
 		document.location.reload();
 	else
 		alert("Mauvais identifiants");
