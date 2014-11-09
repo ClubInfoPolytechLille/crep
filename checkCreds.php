@@ -2,7 +2,7 @@
 require_once("creds.php");
 
 echo "<pre>";
-var_dump($_GLOBALS);
+var_dump($GLOBALS);
 echo "</pre>";
 
 if(!(isset($_GET["user"])&&isset($_GET["pass"])))
