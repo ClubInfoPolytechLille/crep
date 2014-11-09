@@ -16,7 +16,7 @@
 ?>
 		<p class="navbar-text navbar-right">
 			Bienvenue, <a href="#" class="navbar-link"><?php echo $_SESSION["realname"];?> </a>
-			<a href="#" onclick="file('logout.php');document.location.reload();" class="glyphicon glyphicon-poweroff"></a>
+			<a href="#" onclick="file('logout.php');document.location.reload();" class="glyphicon glyphicon-off"></a>
 
 		</p>
 		<?php
