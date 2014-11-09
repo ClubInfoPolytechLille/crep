@@ -1,10 +1,6 @@
 <?php
 require_once("creds.php");
 
-echo "<pre>";
-var_dump($GLOBALS);
-echo "</pre>";
-
 if(!(isset($_GET["user"])&&isset($_GET["pass"])))
 	die("Nop");
 
@@ -14,7 +10,7 @@ $link = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__
 if(!mysql_select_db('crep', $link))
 	die('Nop');
 
-$requete = 'SELECT pk, admin FROM users WHERE username=\''.$_GET["user"].'\' AND password=\''.$_GET["password"].'\'';
+$requete = 'SELECT pk, admin FROM users WHERE username=\''.$_GET["user"].'\' AND password=\''.$_GET["pass"].'\'';
 $resultat = mysql_query($requete);
 	
 if (!$resultat)
