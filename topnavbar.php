@@ -10,8 +10,15 @@
     </div>
     <div class="collapse navbar-collapse">
       <?php
-        if (isset($_SESSION["connected"]) && $_SESSION["connected"])
-		echo '<p class="navbar-text navbar-right">Bienvenue, <a href="#" class="navbar-link">'.$_SESSION["realname"].'</a></p>';
+		if (isset($_SESSION["connected"]) && $_SESSION["connected"])
+?>
+		<p class="navbar-text navbar-right">
+			Bienvenue, <a href="#" class="navbar-link"><?php echo $_SESSION["realname"];?>.'</a>
+		</p>
+		<p class="navbar-right">
+			<a href="#" onclick="file('logout.php');document.location.reload();" class="glyphicon glyphicon-star"></a>
+		</p>
+<?php
 	else
 		echo '<p class="navbar-text navbar-right"><a href="#" class="navbar-link" onClick="loadNewDoc(\'connect.php\');">Se connecter</a></p>';
       ?>
