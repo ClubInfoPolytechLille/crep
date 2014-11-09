@@ -1,14 +1,11 @@
 <h2> Connexion </h2>
-
-<form class="form-horizontal" role="form">
-  
+<form class="form-horizontal" role="form">  
   <div class="form-group">
     <label for="entrer_Identifiant_3" class="col-sm-2 control-label">Identifiant</label>
     <div class="col-sm-10">
       <input type="identifiant" class="form-control" id="Entrer_Identifiant_3" placeholder="Votre identifiant">
     </div>
   </div>
-
   <div class="form-group">
     <label class="col-sm-2 control-label" for="entrer_mot_de_passe_3">Mot de passe</label>
     <div class="col-sm-10">
@@ -20,7 +17,6 @@
       </div>
     </div>
   </div>
-  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
@@ -30,17 +26,25 @@
       </div>
     </div>
   </div>
-  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary">Se connecter</button> <!-- Il faut ajouter le lien d'identification  -->
+      <button id="validCreds" type="submit" class="btn btn-primary">Se connecter</button>
     </div>
   </div>
-  
 </form>
 
 <script type="text/javascript">
-  // Affiche le mot de passe 
-  document.getElementById('afficherMotDePasse').addEventListener('mousedown', function() {document.getElementById('entrer_mot_de_passe_3').type = 'text'})
-  document.addEventListener('mouseup', function() {document.getElementById('entrer_mot_de_passe_3').type = 'password'})
+// Affiche le mot de passe 
+$("#afficherMotDePasse")[0].addEventListener('mousedown', function()
+{
+	$('#entrer_mot_de_passe_3')[0].type = 'text';
+});
+$('#afficherMotDePasse').addEventListener('mouseup', function()
+{
+	$('#entrer_mot_de_passe_3')[0].type = 'password';
+});
+$('#validCreds')addEventListener('click', function()
+{
+	$("#validCreds")[0].disabled=true;
+});
 </script>
