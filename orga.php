@@ -5,6 +5,9 @@
 $time = time();
 
 # e_ : est
+
+session_start();
+
 $e_connecte = isset($_SESSION["connected"]) && $_SESSION["connected"];
 $e_admin = isset($_SESSION["admin"]) && $_SESSION["admin"];
 
@@ -13,7 +16,7 @@ if ($e_connecte) {
     if ($e_admin) {
         $droits  = array('voir', 'voter', 'ajouter', 'proposer', 'annuler', 'supprimer', 'modifier', 'valider');
     } else {
-        $droits = array('voir', 'voter');
+        $droits = array('voir', 'voter', 'proposer');
     }
 } else {
     $droits = array('voir');
