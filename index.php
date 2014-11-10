@@ -14,10 +14,10 @@ require_once("creds.php");
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/crep.css">
 		<link rel="shortcut icon" href="favicon.ico"/>
-		<script type="text/javascript" src="js/crep.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/whirlpool.min.js"></script>
+		<script type="text/javascript" src="js/crep.js"></script>
 	</head>
 	<body>
 <?php require_once("topnavbar.php");?>
