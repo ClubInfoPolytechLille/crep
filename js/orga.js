@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    function envoiRefresh(donnees) {
+        $.post('orga.php', donnees, function(page) {
+            $("#mainContainer").html(page);
+        })
+    }
+
     $(".ev_li").each(function(index) {
         var id = this.id.replace('ev_li_', '')
             // console.debug(id)
@@ -29,32 +35,39 @@ $(document).ready(function() {
             duree = $('#ev_li_' + id + ' .ev_duree')
 
             valider.click(function(e) {
-                console.debug('ACTION modifier', id, description[0].innerHTML, duree[0].value)
-
-                // TODO Envoyer et refresh
+                envoiRefresh({
+                    action: 'modifier',
+                    id: id,
+                    id: description[0].innerHTML,
+                    duree: parseInt(duree[0].value.match(/^../)[0]) * 3600 + parseInt(duree[0].value.match(/^..:(..)/)[1]) * 60
+                })
             })
         })
         $('.ev_annuler', this).click(function(e) {
             // console.debug(id, 'annuler', e)
             if (window.confirm('Voulez-vous vraiment annuler cet évènement ?')) {
-                console.debug('ACTION annuler', id)
-
-                // TODO Envoyer et refresh
+                envoiRefresh({
+                    action: 'annuler',
+                    id: id
+                })
             }
         })
         $('.ev_supprimer', this).click(function(e) {
             // console.debug(id, 'supprimer', e)
-            if (window.confirm('Voulez-vous vraiment supprimer cet évènement ? \nIl ne sera plus visible.')) {
-                console.debug('ACTION supprimer', id)
+            if (window.confirm('Voulez-vous vraiment supprimer cet évènement ? \nIl ne sera plus visible par personne.')) {
+                envoiRefresh({
+                    action: 'supprimer',
+                    id: id
+                })
             }
-
-            // TODO Envoyer et refresh
         })
         $('.ev_pos_proposer', this).click(function(e) {
             console.debug(id, 'pos_proposer', e)
+            window.alert('Cette fonction n\'est pas enore implémentée :-(')
         })
         $('.ev_pos_valider', this).click(function(e) {
             console.debug(id, 'pos_valider', e)
+            window.alert('Cette fonction n\'est pas enore implémentée :-(')
         })
     })
     $("#ev_ajouter_fixe").click(function(e) {
