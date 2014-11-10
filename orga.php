@@ -4,10 +4,10 @@
 
 $time = time();
 
-# DEBUG
 # e_ : est
-$e_connecte = true;
-$e_modo = true;
+// $e_connecte = (isset($_SESSION["connected"]) && $_SESSION["connected"]);
+$e_connecte = true; // DEBUG
+$e_modo = true; // DEBUG
 
 if ($e_connecte) {
     if ($e_modo) {
@@ -22,7 +22,7 @@ if ($e_connecte) {
 
 class Evenement
 {
-    private $id = 0;
+    public $id = 0; // TODO DEBUG Remettre privé (et aussi d'autres choses)
     private $creationTime = 0;
 
     public $nom = "Sans nom";
@@ -36,7 +36,7 @@ class Evenement
     public $datesVotes = array();
 
     public function html() {
-        $html = '<li class="list-group-item';
+        $html = '<li id="ev_li_'.$this->id.'" class="ev_li list-group-item';
         if ($this->annule) {
             $html .= ' list-group-item-danger';
         }
@@ -45,10 +45,10 @@ class Evenement
         # Titre
         $html .= '<h4 class="list-group-item-heading">'.$this->nom;
         if ($this->p_annuler()) {
-            $html .= ' <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon glyphicon-remove"></span> Annuler</button>';
+            $html .= ' <button type="button" class="ev_annuler btn btn-warning"><span class="glyphicon glyphicon glyphicon-remove"></span> Annuler</button>';
         }
         if ($this->p_supprimer()) {
-            $html .= ' <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-trash"></span> Supprimer</button>';
+            $html .= ' <button type="button" class="ev_supprimer btn btn-danger"><span class="glyphicon glyphicon glyphicon-trash"></span> Supprimer</button>';
         }
         $html .= '</h4>';
 
@@ -57,12 +57,12 @@ class Evenement
         $html .= '<div class="panel-heading">';
         $html .= '<h5 class="panel-title">Informations';
         if ($this->p_modifier()) {
-            $html .= ' <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Modifier</button>';
+            $html .= ' <button type="button" class="ev_modifier btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Modifier</button>';
         }
         $html .= '</h5>';
         $html .= '</div>';
         $html .= '<div class="panel-body">';
-        $html .= '<p>';
+        $html .= '<p class="ev_description">';
         $html .= nl2br(htmlspecialchars($this->description));
         $html .= '</p>';
         // $html .= '<hr/>';
@@ -70,9 +70,9 @@ class Evenement
         $heures = floor($this->duree/3600);
         $minutes = floor($this->duree%3600/60);
         $secondes = floor($this->duree%3600%60);
-        $html .= 'Durée : '.($heures > 0 ? $heures.' heure'.($heures > 1 ? 's' : '').' ' : '').($minutes > 0 ? $minutes.' minute'.($minutes > 1 ? 's' : '').' ' : '').($secondes > 0 ? $secondes.' seconde'.($secondes > 1 ? 's' : '').' ' : '').'<br/>';
+        $html .= 'Durée : <span class="ev_duree">'.($heures > 0 ? $heures.' heure'.($heures > 1 ? 's' : '').' ' : '').($minutes > 0 ? $minutes.' minute'.($minutes > 1 ? 's' : '').' ' : '').($secondes > 0 ? $secondes.' seconde'.($secondes > 1 ? 's' : '').' ' : '').'</span><br/>';
         if ($this->valide) {
-            $html .= 'Date : le '.date('j/m/o', $this->valide).' à '.date('H:i', $this->valide).'<br/>';
+            $html .= 'Date : le <span class="ev_date">'.date('j/m/o', $this->valide).' à '.date('H:i', $this->valide).'</span><br/>';
         }
         $html .= '</p>';
         if ($this->annule) {
@@ -84,11 +84,11 @@ class Evenement
 
         # Dates
         if (!$this->valide && !$this->annule) {
-            $html .= '<div class="panel panel-default">';
+            $html .= '<div class="ev_datespos panel panel-default">';
             $html .= '<div class="panel-heading">';
             $html .= '<h5 class="panel-title">Dates possibles';
             if ($this->p_proposer()) {
-                $html .= ' <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Proposer une date</button>';
+                $html .= ' <button type="button" class="btn btn-default"><span class="ev_datespos_proposer glyphicon glyphicon-plus"></span> Proposer une date</button>';
             }
             $html .= '</h5>';
             $html .= '</div>';
@@ -98,16 +98,16 @@ class Evenement
             }
             $html .= '<div class="list-group">';
             $time = time();
-            foreach ($this->dates as $dateIndex => $date) {
+            foreach ($this->dates as $dateIndex => $date) { // TODO À faire fonctionner (après que le reste fonctionne)
                 $html .= '<a href="#"class="list-group-item';
                 if ($date < $time) {
                     $html .= ' disabled';
                 }
-                $html .= '">Le '.date('j/m/o', $date).' à '.date('H:i', $date).' ('.$this->datesVotes[$dateIndex].' <span class="glyphicon glyphicon-user"></span>)</a>';
+                $html .= '">Le <span class="ev_datepos_date">'.date('j/m/o', $date).' à '.date('H:i', $date).'</span> (<span class="ev_datepos_nb">'.$this->datesVotes[$dateIndex].'</span> <span class="glyphicon glyphicon-user"></span>)</a>';
             }
             $html .= '</div>';
             if ($this->p_valider()) {
-                $html .= '<p><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Valider la date</button></p>';
+                $html .= '<p><button type="button" class="ev_datepos_valider btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Valider la date</button></p>';
             }
             $html .= '</div>';
             $html .= '</div>';
@@ -164,15 +164,18 @@ class Evenement
 function a_evenement() {
     # DEBUG
     $test1 = new Evenement;
+    $test1->id = 1;
     $test1->nom = 'Évènement de test n°1';
     $test1->valide = time();
     
     $test2 = new Evenement;
+    $test2->id = 2;
     $test2->nom = 'Évènement de test n°2';
     $test2->valide = time();
     $test2->annule = true;
     
     $test3 = new Evenement;
+    $test3->id = 3;
     $test3->nom = 'Évènement de test n°3';
     $test3->dates[] = 1415482197;
     $test3->datesVotes[] = 42;
@@ -182,6 +185,7 @@ function a_evenement() {
     $test3->datesVotes[] = 1;
     
     $test4 = new Evenement;
+    $test4->id = 4;
     $test4->nom = 'Évènement de test n°4';
     $test4->dates[] = time();
     $test4->datesVotes[] = 5;
@@ -191,12 +195,14 @@ function a_evenement() {
     $test4->annule = true;
 
     $test5 = new Evenement;
+    $test5->id = 5;
     $test5->nom = 'Évènement de test n°5';
     $test5->dates[] = time();
     $test5->datesVotes[] = 0;
     $test5->supprime = true;
 
     $test6 = new Evenement;
+    $test6->id = 6;
     $test6->nom = 'Évènement de test n°6';
     $test6->valide = 1415452197;
 
@@ -237,8 +243,8 @@ if (!$e_connecte) {
 <?php
 if (in_array('voir', $droits)) {
 ?>
-<h3>Évènements plannifiés <?php if (in_array('ajouter', $droits)) { ?><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un évènement avec une date fixée</button><?php } ?></h3>
-<ul class="list-group">
+<h3>Évènements plannifiés <?php if (in_array('ajouter', $droits)) { ?><button id="ev_ajouter_fixe" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un évènement avec une date fixée</button><?php } ?></h3>
+<ul id="ev_ul_planifies" class="list-group">
 <?php
 foreach ($evenementsPlanifies as $evenement) {
     echo $evenement->html();
@@ -247,8 +253,8 @@ foreach ($evenementsPlanifies as $evenement) {
 </ul>
 
 
-<h3>Évènements à plannifier <?php if (in_array('ajouter', $droits)) { ?><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un évènement avec une date à choisir</button><?php } ?></h3>
-<ul class="list-group">
+<h3>Évènements à plannifier <?php if (in_array('ajouter', $droits)) { ?><button id="ev_ajouter_choix" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un évènement avec une date à choisir</button><?php } ?></h3>
+<ul id="ev_ul_aplanifier" class="list-group">
 <?php
 foreach ($evenementsAPlanifier as $evenement) {
     echo $evenement->html();
@@ -258,7 +264,7 @@ foreach ($evenementsAPlanifier as $evenement) {
 
 
 <h3>Évènements passés</h3>
-<ul class="list-group">
+<ul id="ev_ul_passes" class="list-group">
 <?php
 foreach ($evenementsPasses as $evenement) {
     echo $evenement->html();
