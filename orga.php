@@ -19,11 +19,13 @@ if ($e_connecte) {
     $droits = array('voir');
 }
 
+$lastID = 0; // TODO Est-ce que cela mérite-t-il d'exister ?
 
 class Evenement
 {
-    public $id = 0; // TODO DEBUG Remettre privé (et aussi d'autres choses)
-    private $creationTime = 0;
+    // TODO Mettre tout en privé et utiliser __get et __set
+    public $id = 0;
+    public $creationTime = 0;
 
     public $nom = "Sans nom";
     public $description = "Sans description";
@@ -35,8 +37,20 @@ class Evenement
     public $dates = array();
     public $datesVotes = array();
 
-    public function charger() {
-        // TODO SQL
+    function __construct($id = 0) {
+        global $lastID;
+        if ($id == 0) { // Nouvel évènement
+            $lastID += 1;
+            $this->id = $lastID;
+            $this->creationTime = time();
+        } else { // Évènement existant : on charge
+            // TODO SQL Select
+            $this->id = $lastID + 1; // TODO DEBUG SQL Récupération id
+            if ($this->id > $lastID) {
+                $lastID = $this->id;
+            }
+            // TODO SQL Récupération du reste des propriétés
+        }
     }
 
     public function sauvegarder() {
@@ -168,18 +182,16 @@ class Evenement
 
 }
 
-# a_ : Récupérer depuis la base de donnée
-function a_evenement() {
+# a_ : Récupérer depuis la base de donnée (ou pas)
+function a_evenements() {
     # DEBUG
     $test1 = new Evenement;
-    $test1->id = 1;
     $test1->duree = 12345;
     $test1->nom = 'Évènement de test n°1';
     $test1->description = 'Description de l\'évènement de test n°1';
     $test1->valide = time();
     
     $test2 = new Evenement;
-    $test2->id = 2;
     $test2->nom = 'Évènement de test n°2';
     $test2->description = 'Description de l\'évènement de test n°2';
     $test2->duree = 36000;
@@ -187,7 +199,6 @@ function a_evenement() {
     $test2->annule = true;
     
     $test3 = new Evenement;
-    $test3->id = 3;
     $test3->nom = 'Évènement de test n°3';
     $test3->description = 'Description de l\'évènement de test n°3';
     $test3->dates[] = 1415482197;
@@ -198,7 +209,6 @@ function a_evenement() {
     $test3->datesVotes[] = 1;
     
     $test4 = new Evenement;
-    $test4->id = 4;
     $test4->nom = 'Évènement de test n°4';
     $test4->description = 'Description de l\'évènement de test n°4';
     $test4->dates[] = time();
@@ -209,7 +219,6 @@ function a_evenement() {
     $test4->annule = true;
 
     $test5 = new Evenement;
-    $test5->id = 5;
     $test5->nom = 'Évènement de test n°5';
     $test5->description = 'Description de l\'évènement de test n°5';
     $test5->dates[] = time();
@@ -217,7 +226,6 @@ function a_evenement() {
     $test5->supprime = true;
 
     $test6 = new Evenement;
-    $test6->id = 6;
     $test6->nom = 'Évènement de test n°6';
     $test6->description = 'Description de l\'évènement de test n°6';
     $test6->valide = 1415452197;
@@ -225,26 +233,87 @@ function a_evenement() {
     return array($test1, $test2, $test3, $test4, $test5, $test6);
 }
 
-# POST
+$evenements = a_evenements();
+
+function a_evenement($id) {
+    global $evenements;
+    foreach ($evenements as $evenement) {
+        if ($evenement->id == $id) {
+            return $evenement;
+        }
+    }
+}
+
+# TRAITEMENT DES DONNEES POST
+
+function mauvaiseRequete($code = 0) {
+    echo '<div class="alert alert-danger" role="alert">Le serveur n\'a pas compris votre requête <small>(code d\'erreur n°'.$code.')</small>.</div>';
+}
+
+function bonneRequete($message = 'Action correctement effectuée.') {
+    echo '<div class="alert alert-success" role="alert">'.$message.'</div>';
+}
 
 if (isset($_POST['action'])) {
-?>
 
-<div class="alert alert-success" role="alert">Mon capitaine ! On a reçu quelque chose !</div>
+    switch ($_POST['action']) {
+        case 'modifier':
+            if (isset($_POST['id']) && isset($_POST['description']) && isset($_POST['duree'])) {
+                if ($evenement = a_evenement($_POST['id'])) {
+                    if (($duree = intval($_POST['duree'])) >= 0) {
+                        $evenement->description = $_POST['description']; // TODO Protection nécessaire pour SQL
+                        $evenement->duree = $duree;
+                        bonneRequete('Élement correctement modifié.');
+                    } else {
+                        mauvaiseRequete(4);
+                    }
+                } else {
+                    mauvaiseRequete(3);
+                }
+            } else {
+                mauvaiseRequete(2);
+            }
+            break;
 
-<?php
+        case 'annuler':
+            if (isset($_POST['id'])) {
+                if ($evenement = a_evenement($_POST['id'])) {
+                    $evenement->annule = true;
+                    bonneRequete('Évènement annulé.');
+                } else {
+                    mauvaiseRequete(3);
+                }
+            } else {
+                mauvaiseRequete(2);
+            }
+            break;
+
+        case 'supprimer':
+            if (isset($_POST['id'])) {
+                if ($evenement = a_evenement($_POST['id'])) {
+                    $evenement->supprime = true;
+                    bonneRequete('Évènement supprimé.');
+                } else {
+                    mauvaiseRequete(3);
+                }
+            } else {
+                mauvaiseRequete(2);
+            }
+            break;
+        
+        default:
+            mauvaiseRequete(1);
+            break;
+    }
 }
 
 
 # AFFICHAGE DE LA PAGE
 
 # Tri des évènements
-$evenements = a_evenement();
 $evenementsPlanifies = array();
 $evenementsAPlanifier = array();
 $evenementsPasses = array();
-
-$time = time();
 
 foreach ($evenements as $evenement) {
     if (!$evenement->supprime) {
@@ -260,9 +329,8 @@ foreach ($evenements as $evenement) {
     }
 }
 
-?>
+# Affichage
 
-<?php
 if (!$e_connecte) {
 ?>
 <div class="alert alert-warning" role="alert">Connectez-vous afin de pouvoir agir sur les évènements.</div>

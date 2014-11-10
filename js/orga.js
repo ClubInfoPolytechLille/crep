@@ -38,7 +38,7 @@ $(document).ready(function() {
                 envoiRefresh({
                     action: 'modifier',
                     id: id,
-                    id: description[0].innerHTML,
+                    description: description[0].value,
                     duree: parseInt(duree[0].value.match(/^../)[0]) * 3600 + parseInt(duree[0].value.match(/^..:(..)/)[1]) * 60
                 })
             })
