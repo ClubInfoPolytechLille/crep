@@ -6,7 +6,9 @@ $time = time();
 
 # e_ : est
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $e_connecte = isset($_SESSION["connected"]) && $_SESSION["connected"];
 $e_admin = isset($_SESSION["admin"]) && $_SESSION["admin"];
