@@ -84,11 +84,11 @@ class Evenement
 
         # Dates
         if (!$this->valide && !$this->annule) {
-            $html .= '<div class="ev_datespos panel panel-default">';
+            $html .= '<div class="ev_pos panel panel-default">';
             $html .= '<div class="panel-heading">';
             $html .= '<h5 class="panel-title">Dates possibles';
             if ($this->p_proposer()) {
-                $html .= ' <button type="button" class="btn btn-default"><span class="ev_datespos_proposer glyphicon glyphicon-plus"></span> Proposer une date</button>';
+                $html .= ' <button type="button" class="ev_pos_proposer btn btn-default"><span class="glyphicon glyphicon-plus"></span> Proposer une date</button>';
             }
             $html .= '</h5>';
             $html .= '</div>';
@@ -103,11 +103,11 @@ class Evenement
                 if ($date < $time) {
                     $html .= ' disabled';
                 }
-                $html .= '">Le <span class="ev_datepos_date">'.date('j/m/o', $date).' à '.date('H:i', $date).'</span> (<span class="ev_datepos_nb">'.$this->datesVotes[$dateIndex].'</span> <span class="glyphicon glyphicon-user"></span>)</a>';
+                $html .= '">Le <span class="ev_pos_date">'.date('j/m/o', $date).' à '.date('H:i', $date).'</span> (<span class="ev_pos_nb">'.$this->datesVotes[$dateIndex].'</span> <span class="glyphicon glyphicon-user"></span>)</a>';
             }
             $html .= '</div>';
             if ($this->p_valider()) {
-                $html .= '<p><button type="button" class="ev_datepos_valider btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Valider la date</button></p>';
+                $html .= '<p><button type="button" class="ev_pos_valider btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Valider la date</button></p>';
             }
             $html .= '</div>';
             $html .= '</div>';
@@ -271,6 +271,34 @@ foreach ($evenementsPasses as $evenement) {
 }
 ?>
 </ul>
+
+<script type="text/javascript">
+    $(".ev_li").each(function (index) {
+        var id = this.id.replace('ev_li_', '')
+        // console.debug(id)
+        $('.ev_modifier', this).click(function(e) {
+            console.debug(id, 'modifier', e)
+        })
+        $('.ev_annuler', this).click(function(e) {
+            console.debug(id, 'annuler', e)
+        })
+        $('.ev_supprimer', this).click(function(e) {
+            console.debug(id, 'supprimer', e)
+        })
+        $('.ev_pos_proposer', this).click(function(e) {
+            console.debug(id, 'pos_proposer', e)
+        })
+        $('.ev_pos_valider', this).click(function(e) {
+            console.debug(id, 'pos_valider', e)
+        })
+    })
+    $("#ev_ajouter_fixe").click(function(e) {
+        console.debug('ajouter_fixe', e)
+    })
+    $("#ev_ajouter_choix").click(function(e) {
+        console.debug('ajouter_choix', e)
+    })
+</script>
 
 <?php
 } else {
