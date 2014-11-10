@@ -35,6 +35,14 @@ class Evenement
     public $dates = array();
     public $datesVotes = array();
 
+    public function charger() {
+        // TODO SQL
+    }
+
+    public function sauvegarder() {
+        // TODO SQL
+    }
+
     public function html() {
         $html = '<li id="ev_li_'.$this->id.'" class="ev_li list-group-item';
         if ($this->annule) {
@@ -216,6 +224,19 @@ function a_evenement() {
 
     return array($test1, $test2, $test3, $test4, $test5, $test6);
 }
+
+# POST
+
+if (isset($_POST['action'])) {
+?>
+
+<div class="alert alert-success" role="alert">Mon capitaine ! On a reçu quelque chose !</div>
+
+<?php
+}
+
+
+# AFFICHAGE DE LA PAGE
 
 # Tri des évènements
 $evenements = a_evenement();
