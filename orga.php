@@ -6,7 +6,7 @@ $time = time();
 
 # e_ : est
 
-if(session_id() == '') {
+if (!isset($_SESSION)) {
     session_start();
 }
 
