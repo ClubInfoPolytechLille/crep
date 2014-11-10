@@ -4,10 +4,10 @@
 			<a href="#" onClick="loadNewDoc('news.php');">News</a>
 		</li>
 		<li>
-			<a href="#" onClick="loadNewDoc('agenda.php');">Agenda</a>
+			<a href="agenda.php" onClick="loadNewDoc('agenda.php');">Agenda</a>
 		</li>
 		<li>
-			<a href="#" onClick="loadNewDoc('orga.php');">Organisation</a>
+			<a href="orga.php" onClick="loadNewDoc('orga.php');">Organisation</a>
 		</li>
 	<?php
 		if (!(isset($_SESSION["connected"]) && $_SESSION["connected"]))
