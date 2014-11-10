@@ -14,7 +14,7 @@ if(!mysql_select_db('crep', $link)){
 	exit;
 }
 	
-$requete = "select news.pk as pk, created, title, content, users.realname as userName from news, users where news.fk_author=users.pk;";
+$requete = "select news.pk as pk, DATE_FORMAT(created,'%e-%m-%Y') AS created, title, content, users.realname as userName from news, users where news.fk_author=users.pk;";
 $resultat = mysql_query($requete);
 	
 //Pour debugger
