@@ -14,7 +14,7 @@ if(!mysql_select_db('crep', $link)){
 	exit;
 }
 	
-$requete = "select news.pk as pk, title, content, users.realname as userName from news, users where news.fk_author=users.pk;";
+$requete = "select news.pk as pk, created, title, content, users.realname as userName from news, users where news.fk_author=users.pk;";
 $resultat = mysql_query($requete);
 	
 //Pour debugger
@@ -36,7 +36,7 @@ while ($row = mysql_fetch_assoc($resultat)) {
 	echo '<p>'.$row['content'].'</p>';
 	echo '</div>';
 	echo '<div class="panel-footer">';
-	echo '<p>'.$row['userName'].'</p>';
+	echo '<p>'.$row['userName'].', le '.$row['created'].'</p>';
 	echo '</div></div>';
 }
 	
