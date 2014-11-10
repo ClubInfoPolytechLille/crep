@@ -70,7 +70,7 @@ class Evenement
         $heures = floor($this->duree/3600);
         $minutes = floor($this->duree%3600/60);
         $secondes = floor($this->duree%3600%60);
-        $html .= 'Durée : <span class="ev_duree">'.($heures > 0 ? $heures.' heure'.($heures > 1 ? 's' : '').' ' : '').($minutes > 0 ? $minutes.' minute'.($minutes > 1 ? 's' : '').' ' : '').($secondes > 0 ? $secondes.' seconde'.($secondes > 1 ? 's' : '').' ' : '').'</span><br/>';
+        $html .= 'Durée : <span class="ev_duree">'.($heures > 0 ? '<span class="ev_duree_h">'.$heures.'</span> heure'.($heures > 1 ? 's' : '').' ' : '').($minutes > 0 ? '<span class="ev_duree_m">'.$minutes.'</span> minute'.($minutes > 1 ? 's' : '').' ' : '').($secondes > 0 ? '<span class="ev_duree_s">'.$secondes.'</span> seconde'.($secondes > 1 ? 's' : '').' ' : '').'</span><br/>';
         if ($this->valide) {
             $html .= 'Date : le <span class="ev_date">'.date('j/m/o', $this->valide).' à '.date('H:i', $this->valide).'</span><br/>';
         }
@@ -165,18 +165,23 @@ function a_evenement() {
     # DEBUG
     $test1 = new Evenement;
     $test1->id = 1;
+    $test1->duree = 12345;
     $test1->nom = 'Évènement de test n°1';
+    $test1->description = 'Description de l\'évènement de test n°1';
     $test1->valide = time();
     
     $test2 = new Evenement;
     $test2->id = 2;
     $test2->nom = 'Évènement de test n°2';
+    $test2->description = 'Description de l\'évènement de test n°2';
+    $test2->duree = 36000;
     $test2->valide = time();
     $test2->annule = true;
     
     $test3 = new Evenement;
     $test3->id = 3;
     $test3->nom = 'Évènement de test n°3';
+    $test3->description = 'Description de l\'évènement de test n°3';
     $test3->dates[] = 1415482197;
     $test3->datesVotes[] = 42;
     $test3->dates[] = time();
@@ -187,6 +192,7 @@ function a_evenement() {
     $test4 = new Evenement;
     $test4->id = 4;
     $test4->nom = 'Évènement de test n°4';
+    $test4->description = 'Description de l\'évènement de test n°4';
     $test4->dates[] = time();
     $test4->datesVotes[] = 5;
     $test4->dates[] = time()+365*24*3600;
@@ -197,6 +203,7 @@ function a_evenement() {
     $test5 = new Evenement;
     $test5->id = 5;
     $test5->nom = 'Évènement de test n°5';
+    $test5->description = 'Description de l\'évènement de test n°5';
     $test5->dates[] = time();
     $test5->datesVotes[] = 0;
     $test5->supprime = true;
@@ -204,6 +211,7 @@ function a_evenement() {
     $test6 = new Evenement;
     $test6->id = 6;
     $test6->nom = 'Évènement de test n°6';
+    $test6->description = 'Description de l\'évènement de test n°6';
     $test6->valide = 1415452197;
 
     return array($test1, $test2, $test3, $test4, $test5, $test6);
@@ -272,33 +280,7 @@ foreach ($evenementsPasses as $evenement) {
 ?>
 </ul>
 
-<script type="text/javascript">
-    $(".ev_li").each(function (index) {
-        var id = this.id.replace('ev_li_', '')
-        // console.debug(id)
-        $('.ev_modifier', this).click(function(e) {
-            console.debug(id, 'modifier', e)
-        })
-        $('.ev_annuler', this).click(function(e) {
-            console.debug(id, 'annuler', e)
-        })
-        $('.ev_supprimer', this).click(function(e) {
-            console.debug(id, 'supprimer', e)
-        })
-        $('.ev_pos_proposer', this).click(function(e) {
-            console.debug(id, 'pos_proposer', e)
-        })
-        $('.ev_pos_valider', this).click(function(e) {
-            console.debug(id, 'pos_valider', e)
-        })
-    })
-    $("#ev_ajouter_fixe").click(function(e) {
-        console.debug('ajouter_fixe', e)
-    })
-    $("#ev_ajouter_choix").click(function(e) {
-        console.debug('ajouter_choix', e)
-    })
-</script>
+<script type="text/javascript" src="js/orga.js"></script>
 
 <?php
 } else {
