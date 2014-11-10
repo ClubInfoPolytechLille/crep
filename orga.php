@@ -1,3 +1,11 @@
+<?php
+
+if(session_id() == '') {
+    session_start();
+}
+
+?>
+
 <h3> Organisation </h3>
 
 <?php
@@ -5,10 +13,6 @@
 $time = time();
 
 # e_ : est
-
-if (!isset($_SESSION)) {
-    session_start();
-}
 
 $e_connecte = isset($_SESSION["connected"]) && $_SESSION["connected"];
 $e_admin = isset($_SESSION["admin"]) && $_SESSION["admin"];
