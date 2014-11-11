@@ -28,8 +28,6 @@ if ($e_connecte) {
     $droits = array('voir');
 }
 
-$lastID = 0; // TODO Est-ce que cela mérite-t-il d'exister ?
-
 class Evenement
 {
     // TODO Mettre tout en privé et utiliser __get et __set
@@ -46,19 +44,62 @@ class Evenement
     public $dates = array();
     public $datesVotes = array();
 
-    function __construct($id = 0) {
-        global $lastID;
-        if ($id == 0) { // Nouvel évènement
-            $lastID += 1;
-            $this->id = $lastID;
-            $this->creationTime = time();
-        } else { // Évènement existant : on charge
-            // TODO SQL Select
-            $this->id = $lastID + 1; // TODO DEBUG SQL Récupération id
-            if ($this->id > $lastID) {
-                $lastID = $this->id;
+    private static $bddOK = false;
+    private static $bdd = null;
+    public static $tout = array();
+
+    private static function connecterBDD() {
+        if (!Evenement::$bddOK) {
+            require_once("creds.php");
+            try {
+                Evenement::$bdd = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__);
+                mysql_query("SET NAMES 'utf8'");
+            } catch(Exception $e) {
+                echo 'Nop connect';
+                return; // TODO Message d'erreur digne de ce nom
             }
-            // TODO SQL Récupération du reste des propriétés
+            if (mysql_select_db('crep', Evenement::$bdd)) {
+                Evenement::$bddOK = true;
+            } else {
+                echo 'Nop db';
+            }
+        }
+    }
+
+    public static function chargerTout() {
+        Evenement::$tout = array();
+        Evenement::connecterBDD();
+        $requete = 'SELECT id FROM events';
+        // TODO SQL Protéger
+        $resultat = mysql_query($requete);
+        while ($row = mysql_fetch_assoc($resultat)) {
+            Evenement::$tout[] = new Evenement($row['id']);
+        }
+    }
+
+    function __construct($id = null) {
+        Evenement::connecterBDD();
+
+        if ($id == null) { // Nouvel évènement
+            $this->creationTime = time();
+            // TODO SQL Récupérer id (AUTOINCREMENT)
+        } else { // Évènement existant : on charge
+            $requete = 'SELECT id, creationTime, nom, description, annule, valide, duree, supprime FROM events WHERE id='.$id;
+            // TODO SQL Protéger
+            $resultat = mysql_query($requete);
+            if ($resultat && $row = mysql_fetch_assoc($resultat)) {
+                $this->id = $row['id'];
+                $this->creationTime = $row['creationTime'];
+                $this->nom = $row['nom'];
+                $this->description = $row['description'];
+                $this->annule = $row['annule'];
+                $this->valide = $row['valide'];
+                $this->duree = $row['duree'];
+                $this->supprime = $row['supprime'];
+                
+            } else {
+                echo 'Nop resultat';
+            }
         }
     }
 
@@ -191,62 +232,12 @@ class Evenement
 
 }
 
+Evenement::chargerTout();
+
 # a_ : Récupérer depuis la base de donnée (ou pas)
-function a_evenements() {
-    # DEBUG
-    $test1 = new Evenement;
-    $test1->duree = 12345;
-    $test1->nom = 'Évènement de test n°1';
-    $test1->description = 'Description de l\'évènement de test n°1';
-    $test1->valide = time();
-    
-    $test2 = new Evenement;
-    $test2->nom = 'Évènement de test n°2';
-    $test2->description = 'Description de l\'évènement de test n°2';
-    $test2->duree = 36000;
-    $test2->valide = time();
-    $test2->annule = true;
-    
-    $test3 = new Evenement;
-    $test3->nom = 'Évènement de test n°3';
-    $test3->description = 'Description de l\'évènement de test n°3';
-    $test3->dates[] = 1415482197;
-    $test3->datesVotes[] = 42;
-    $test3->dates[] = time();
-    $test3->datesVotes[] = 5;
-    $test3->dates[] = time()+365*24*3600;
-    $test3->datesVotes[] = 1;
-    
-    $test4 = new Evenement;
-    $test4->nom = 'Évènement de test n°4';
-    $test4->description = 'Description de l\'évènement de test n°4';
-    $test4->dates[] = time();
-    $test4->datesVotes[] = 5;
-    $test4->dates[] = time()+365*24*3600;
-    $test4->datesVotes[] = 1;
-    $test4->dates[] = time();
-    $test4->annule = true;
 
-    $test5 = new Evenement;
-    $test5->nom = 'Évènement de test n°5';
-    $test5->description = 'Description de l\'évènement de test n°5';
-    $test5->dates[] = time();
-    $test5->datesVotes[] = 0;
-    $test5->supprime = true;
-
-    $test6 = new Evenement;
-    $test6->nom = 'Évènement de test n°6';
-    $test6->description = 'Description de l\'évènement de test n°6';
-    $test6->valide = 1415452197;
-
-    return array($test1, $test2, $test3, $test4, $test5, $test6);
-}
-
-$evenements = a_evenements();
-
-function a_evenement($id) {
-    global $evenements;
-    foreach ($evenements as $evenement) {
+function a_evenement($id) { // TODO Méthode statique à Evenement
+    foreach (Evenement::$tout as $evenement) {
         if ($evenement->id == $id) {
             return $evenement;
         }
@@ -324,7 +315,7 @@ $evenementsPlanifies = array();
 $evenementsAPlanifier = array();
 $evenementsPasses = array();
 
-foreach ($evenements as $evenement) {
+foreach (Evenement::$tout as $evenement) {
     if (!$evenement->supprime) {
         if ($evenement->valide) {
             if ($evenement->passe()) {
@@ -345,9 +336,10 @@ if (!$e_connecte) {
 <div class="alert alert-warning" role="alert">Connectez-vous afin de pouvoir agir sur les évènements.</div>
 <?php    
 }
-?>
-<?php
+
+
 if (in_array('voir', $droits)) {
+// TODO Message si catégorie vide
 ?>
 <h3>Évènements plannifiés <?php if (in_array('ajouter', $droits)) { ?><button id="ev_ajouter_fixe" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un évènement avec une date fixée</button><?php } ?></h3>
 <ul id="ev_ul_planifies" class="list-group">
