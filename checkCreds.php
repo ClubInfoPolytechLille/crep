@@ -10,7 +10,6 @@ $link = mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__
 
 if(!mysql_select_db('crep', $link))
 	die('Nop');
-mysql_query("SET NAMES 'utf8'");
 $requete = 'SELECT pk, admin, realname FROM users WHERE username=\''.$_GET["user"].'\' AND password=\''.$_GET["pass"].'\'';
 $resultat = mysql_query($requete);
 	

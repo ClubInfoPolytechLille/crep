@@ -26,7 +26,7 @@ if(!mysql_select_db('crep', $link))
 	echo 'Selection de la base de donnees impossible';
 	exit;
 }
-
+mysql_query("SET NAMES 'utf8'");
 $requete = "SELECT DISTINCT `nom`, `circonscription`, `adresse`, `enseignant`, `contact` FROM `school` ORDER BY nom ASC";
 $resultat = mysql_query($requete);
 
