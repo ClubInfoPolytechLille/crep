@@ -12,6 +12,7 @@ require_once("creds.php");
 					<th>Circonscription</th>
 					<th>Contact</th>
 					<th>Enseignant</th>
+					<th>Contact</th>
 				</tr>
 			</thead>
 		</div >
