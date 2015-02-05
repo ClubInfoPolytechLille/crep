@@ -1,3 +1,6 @@
+<?php
+require_once("creds.php");
+?>
 <h2>Liste écoles participantes</h2>
 
 <center>
