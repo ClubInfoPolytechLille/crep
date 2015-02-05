@@ -24,7 +24,10 @@
 		<li>
 			<a href="#profil" onClick="loadNewDoc('???????.php);">Profil</a>
 		</li>
-	<?php
+			<li>
+			<a href="#school" onClick="loadNewDoc('school.php');">Ecoles</a>
+		</li>
+<?php
 		}
 	?>
 	</ul>
