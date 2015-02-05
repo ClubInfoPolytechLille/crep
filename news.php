@@ -1,4 +1,5 @@
 <?php
+require_once("creds.php");
 
 echo "<h2> News ";
 if(isset($_SESSION["admin"])&&$_SESSION["admin"])
