@@ -26,7 +26,7 @@ if(!mysql_select_db('crep', $link))
 	exit;
 }
 
-$requete = "SELECT DISTINCT `nom`, `circonscription`, `adresse`, `enseignant` FROM `school` ORDER BY nom ASC";
+$requete = "SELECT DISTINCT `nom`, `circonscription`, `adresse`, `enseignant`, `contact` FROM `school` ORDER BY nom ASC";
 $resultat = mysql_query($requete);
 
 while ($row = mysql_fetch_assoc($resultat))
@@ -39,12 +39,15 @@ while ($row = mysql_fetch_assoc($resultat))
 	echo '<p>'.$row['circonscription'].'</p>';
 	echo '</td>';
 	echo '<td>';
-	echo '<p>'.$row['addresse'].'</p>';
+	echo '<p>'.$row['adresse'].'</p>';
 	echo '</td>';
 	echo '<td>';
 	echo '<p>'.$row['enseignant'].'</p>';
 	echo '</td>';
-	echo '</tr>';
+	echo '<td>';
+	echo '<p>'.$row['contact'].'</p>';
+	echo '</td>';
+echo '</tr>';
 }
 
 mysql_close($link);
