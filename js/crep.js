@@ -24,6 +24,16 @@ function deleteNewNews()
 		$("#newNews").remove();
 }
 
+function validNewNews()
+{
+	var ret;
+	ret = $.post( "sendNews.php", {title: Base64.encode($("#newNews")[0].childNodes[0].childNodes[0].childNodes[0].value), content: Base64.encode($("#newNews")[0].childNodes[1].childNodes[0].value)});
+	if(ret == true)
+		document.location.reload();
+	else
+		alert("Erreur durant la transmission de la news");
+}
+
 function addNews()
 {
 	var elem = "<div id=\"newNews\" class=\"panel panel-default\"><div class=\"panel-heading\"><h3 class=\"panel-title\"><input type=text class=\"form-control\" placeholder=\"Nouvel article\"/></h3></div><div class=\"panel-body\"><textarea class=\"form-control\"></textarea></div><div class=\"panel-footer\"><p><button type=\"button\" onClick=\"validNewNews();\" class=\"btn btn-success\">Success</button>&nbsp;<button type=\"button\" onClick=\"deleteNewNews();\" class=\"btn btn-danger\">Annuler</button></p></div></div>";
