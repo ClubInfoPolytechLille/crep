@@ -8,5 +8,5 @@ if(!mysql_select_db('crep', $link))
 	echo 'Selection de la base de donnees impossible';
 	exit;
 }
-$requete = "INSERT INTO  `crep`.`news` (`pk` ,`fk_author` ,`created` ,`title` ,`content`) VALUES (NULL ,  '2',  CURDATE(), ".base64_decode($_POST["title"]).", ".base64_decode($_POST["content"]).")";
+$requete = "INSERT INTO  `crep`.`news` (`pk` ,`fk_author` ,`created` ,`title` ,`content`) VALUES (NULL ,  '2',  CURDATE(), \"".base64_decode($_POST["title"])."\", \"".base64_decode($_POST["content"])."\")";
 $resultat = mysql_query($requete);
