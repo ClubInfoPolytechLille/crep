@@ -14,7 +14,7 @@ if(!mysql_select_db('crep', $link)){
 	echo 'Selection de la base de donnees impossible';
 	exit;
 }
-	
+mysql_query("SET NAMES 'utf8'");
 $requete = "select news.pk as pk, DATE_FORMAT(created,'%e-%m-%Y') AS created, title, content, users.realname as userName from news, users where news.fk_author=users.pk;";
 $resultat = mysql_query($requete);
 	
