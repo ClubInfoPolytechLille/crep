@@ -18,6 +18,12 @@ function loadNewDoc(doc) {
     return false
 }
 
+function addNews()
+{
+	var elem = "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 class=\"panel-title\"><input type=text class=\"form-control\" placeholder=\"Nouvel article\"/></h3></div><div class=\"panel-body\"><textarea class=\"form-control\"></textarea></div><div class=\"panel-footer\"><p>En cours d'édition</p></div></div>";
+	$("#mainContainer").append(elem);
+}
+
 $().ready(function() {
     // Navigue vers la page indiquée dans l'URL en cas de refresh
     if (window.location.hash) {
