@@ -1,4 +1,4 @@
-<nav class="navbar navbar-defaut navbar-lower">
+<nav class="navbar navbar-default navbar-lower">
 	<div class="container-fluid">
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
