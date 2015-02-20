@@ -22,11 +22,9 @@ require_once("creds.php");
 	</head>
 	<body>
 <?php require_once("topnavbar.php");?>
-		<div class="col-md-12 center-block">
-			<div class="col-md-3">
 <?php require_once("menu.php");?>
-			</div>
-			<div class="col-md-9" id="mainContainer">
+		<div class="col-md-12 center-block">
+			<div class="col-md-12" id="mainContainer">
 <?php require_once("news.php");?>
 			</div>
 		</div>

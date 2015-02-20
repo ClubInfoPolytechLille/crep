@@ -1,34 +1,23 @@
-<div class="well well-sm" role="complementary">
-	<ul class="nav">
-		<li>
-			<a href="#news" onClick="loadNewDoc('news.php');">News</a>
-		</li>
-		<li>
-			<a href="#agenda" onClick="loadNewDoc('agenda.php');">Agenda</a>
-		</li>
-		<li>
-			<a href="#orga" onClick="loadNewDoc('orga.php');">Organisation</a>
-		</li>
-	<?php
-		if (!(isset($_SESSION["connected"]) && $_SESSION["connected"]))
-		{
-	?>
-			<li>
-				<a href="#connect" onClick="loadNewDoc('connect.php');">Connexion</a>
-			</li>
-	<?php
-		}
-		else
-		{
-	?>
-		<li>
-			<a href="#profil" onClick="loadNewDoc('???????.php);">Profil</a>
-		</li>
-			<li>
-			<a href="#school" onClick="loadNewDoc('school.php');">Ecoles</a>
-		</li>
-<?php
-		}
-	?>
-	</ul>
-</div>
+<nav class="navbar navbar-defaut">
+	<div class="container-fluid">
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#news" onClick="loadNewDoc('home.php');">Accueil</a>
+				</li>
+				<li>
+					<a href="#agenda" onClick="loadNewDoc('description.php');">Descritption</a>
+				</li>
+				<li>
+					<a href="#orga" onClick="loadNewDoc('sponsors.php');">Sponsors</a>
+				</li>
+				<li>
+					<a href="#profil" onClick="loadNewDoc('schools.php);">Ecoles participantes</a>
+				</li>
+				<li>
+					<a href="#school" onClick="loadNewDoc('contact.php');">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
