@@ -8,8 +8,10 @@
       
       <a class="navbar-brand" onClick="document.location.reload();" data-toggle="tooltip" data-placement="bottom" title="Aller à la page d'accueil" href="#">Coupe de Robotique des Ecoles Primaires</a>
     </div>
-    <div class="collapse navbar-collapse">
-		<img src="img/logo.png" height="20" />
+	<div class="collapse navbar-collapse">
+		<p class="navbar-text navbar-right">
+			<img src="img/logo.png" height="20" />
+		</p>
     </div>
   </div>
 </nav>
