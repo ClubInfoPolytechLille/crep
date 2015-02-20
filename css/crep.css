@@ -1,4 +1,11 @@
 body
 { 
-	padding-top: 70px;
+	padding-top: 120px;
+}
+
+.navbar-lower
+{
+	position: absolute;
+	top: 50px;
+	width: 100%;
 }
