@@ -13,7 +13,8 @@ body
 .panel-default
 {
 	border-color: #89B3D1;
-	.panel-heading
+
+	& > .panel-heading
 	{
 		background-color: #89B3D1;
 		border-color: #89B3D1;
