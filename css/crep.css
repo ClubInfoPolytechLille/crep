@@ -13,12 +13,6 @@ body
 .panel-default
 {
 	border-color: #89B3D1;
-
-	& > .panel-heading
-	{
-		background-color: #89B3D1;
-		border-color: #89B3D1;
-	}
 }
 
 .panel
@@ -26,6 +20,11 @@ body
 	background-color: #749BD1;
 }
 
+.panel-default > .panel-heading
+{
+	background-color: #89B3D1;
+	border-color: #89B3D1;
+}
 
 .panel-footer
 {
