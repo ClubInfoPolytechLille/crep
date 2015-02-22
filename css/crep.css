@@ -10,7 +10,34 @@ body
 	width: 100%;
 }
 
-.navbar-fixed-top
+.panel-default
 {
-	margin-right: 10px;
+	border-color: #89B3D1;
+}
+
+.panel
+{
+	background-color: #749BD1;
+}
+
+.panel-heading .panel-footer
+{
+	background-color: #89B3D1;
+	border-color: #89B3D1;
+}
+
+.navbar-brand
+{
+	color: #FFF;
+}
+
+.navbar-nav
+{
+	color: #E4984E;
+}
+
+.navbar-default
+{
+	background-color: #749B01;
+	border-color: #5276A8;
 }
