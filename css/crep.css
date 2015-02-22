@@ -20,7 +20,13 @@ body
 	background-color: #749BD1;
 }
 
-.panel-heading .panel-footer
+.panel-heading
+{
+	background-color: #89B3D1;
+	border-color: #89B3D1;
+}
+
+.panel-footer
 {
 	background-color: #89B3D1;
 	border-color: #89B3D1;
@@ -38,6 +44,6 @@ body
 
 .navbar-default
 {
-	background-color: #749B01;
+	background-color: #749BD1;
 	border-color: #5276A8;
 }
