@@ -25,7 +25,7 @@ require_once("creds.php");
 <?php require_once("menu.php");?>
 		<div class="col-md-12 center-block">
 			<div class="col-md-12" id="mainContainer">
-<?php require_once("news.php");?>
+<?php require_once("home.php");?>
 			</div>
 		</div>
 	</body>
