@@ -1,4 +1,4 @@
-<div id="homecarousel" class="carousel slide" data-ride="carousel">
+<div id="homecarousel" class="carousel slide" data-ride="carousel" align="center">
 	<ol class="carousel-indicators">
 		<li data-target="#homecarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#homecarousel" data-slide-to="1"></li>
