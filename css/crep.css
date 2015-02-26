@@ -35,11 +35,13 @@ body
 .navbar-default .navbar-brand
 {
 	color: #FFF;
+	font-family: brandFont;
 }
 
 .navbar-default .navbar-nav > li > a
 {
-	color: #E4984E;
+	color: #CCC;
+	font-family: linkFont;
 }
 
 .navbar-default
@@ -51,13 +53,13 @@ body
 @font-face
 {
     font-family: brandFont;
-    src: url(fonts/ROBOTECH_GP.ttf);
+    src: url(../fonts/ROBOTECH_GP.ttf);
 }
 
 @font-face
 {
     font-family: linkFont;
-    src: url(fonts/robotaur.ttf);
+    src: url(../fonts/robotaur.ttf);
 }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img
