@@ -47,3 +47,20 @@ body
 	background-color: #749BD1;
 	border-color: #5276A8;
 }
+
+@font-face
+{
+    font-family: brandFont;
+    src: url(fonts/ROBOTECH_GP.ttf);
+}
+
+@font-face
+{
+    font-family: linkFont;
+    src: url(fonts/robotaur.ttf);
+}
+
+carousel-inner > .item > img, .carousel-inner > .item > a > img
+{
+	height: 600px;
+}
