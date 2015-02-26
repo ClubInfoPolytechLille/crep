@@ -28,5 +28,8 @@ require_once("creds.php");
 <?php require_once("home.php");?>
 			</div>
 		</div>
+&nbsp;
+&nbsp;
+<?php require_once("footer.php");?>
 	</body>
 </html>
