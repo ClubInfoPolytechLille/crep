@@ -60,7 +60,7 @@ body
     src: url(fonts/robotaur.ttf);
 }
 
-carousel-inner > .item > img, .carousel-inner > .item > a > img
+.carousel-inner > .item > img, .carousel-inner > .item > a > img
 {
 	height: 600px;
 }
