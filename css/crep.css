@@ -67,3 +67,9 @@ body
 {
 	height: 600px;
 }
+
+#map-canvas
+{
+	width: 600px;
+	height: 400px;
+}

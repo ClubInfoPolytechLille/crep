@@ -14,6 +14,7 @@ require_once("creds.php");
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/crep.css">
 		<link rel="shortcut icon" href="favicon.ico"/>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/whirlpool.min.js"></script>
