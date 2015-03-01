@@ -11,7 +11,7 @@
 				<a href="#sponsors" onClick="loadNewDoc('sponsors.php');">Sponsors</a>
 			</li>
 			<li>
-				<a href="#schools" onClick="loadNewDoc('schools.php');">Ecoles participantes</a>
+				<a href="#schools" onClick="loadNewDoc('schools.phpDEBUG');">Ecoles participantes</a>
 			</li>
 			<li>
 				<a href="#contact" onClick="loadNewDoc('contact.php');">Contact</a>
