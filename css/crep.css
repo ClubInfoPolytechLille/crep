@@ -1,3 +1,7 @@
+body {
+	background: url('../img/mainBgPattern.png')
+}
+
 .navbar-lower
 {
 	margin-top: 50px;

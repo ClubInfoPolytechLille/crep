@@ -1,7 +1,11 @@
 GENIMG=lille1.png polytechlille.png
 CMPIMG=CREP-1.jpg CREP-2.jpg CREP-3.jpg CREP-4.jpg CREP-5.jpg
 
-all: $(GENIMG) $(CMPIMG)
+all: $(GENIMG) $(CMPIMG) mainBgPattern.png
+
+mainBgPattern.png:
+	wget http://subtlepatterns.com/patterns/low_contrast_linen.png -O $@
+	convert -negate $@ $@
 
 %.png: %.svg
 	convert -background none $< $@
