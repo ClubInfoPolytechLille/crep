@@ -3,6 +3,7 @@
   <p>Pour toute information, vous pouvez contacter Mme Pichonnat</p>
 </div>
 &nbsp;
+&nbsp;
 <div id="map-canvas"></div>
 <script>
 	function initialize()
@@ -16,5 +17,5 @@
 		}
         var map = new google.maps.Map(mapCanvas, mapOptions)
 	}
-	google.maps.event.addDomListener(window, 'load', initialize);
+    initialize()
 </script>
