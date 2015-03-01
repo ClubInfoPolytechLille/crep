@@ -65,7 +65,7 @@ body
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img
 {
-	height: 600px;
+	max-height: 600px;
 }
 
 #map-canvas
