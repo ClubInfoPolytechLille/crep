@@ -8,7 +8,7 @@ all: $(GENIMG) $(CMPIMG)
 	optipng -o7 $@
 
 %.jpg: orig/%.jpg
-	convert -resize x600 -strip -interlace Plane -gaussian-blur 0.05 -quality 90% $< $@
+	convert -resize x1200 -strip -interlace Plane -gaussian-blur 0.05 -quality 90% $< $@
 
 clean:
 	rm -rf $(GENIMG) $(CMPIMG)
