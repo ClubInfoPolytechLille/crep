@@ -4,7 +4,7 @@
     <div class="col-lg-12">
       <div class="col-md-6">
         <ul class="nav nav-pills nav-stacked">
-          <li>Sponsorisé par PolytechLille</li>
+          <li>Sponsorisé par Polytech Lille</li>
           <li><img src="img/polytechlille.png" /></li>
         </ul>
       </div>
