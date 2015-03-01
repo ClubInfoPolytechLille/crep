@@ -1,12 +1,6 @@
-body
-{ 
-	padding-top: 120px;
-}
-
 .navbar-lower
 {
-	position: absolute;
-	top: 50px;
+	margin-top: 50px;
 	width: 100%;
 }
 
