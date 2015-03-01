@@ -1,2 +1,2 @@
 all:
-    cd img; make
+	cd img; make
