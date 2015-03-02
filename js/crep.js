@@ -1,25 +1,31 @@
-function loadDoc(ev) {
+function pageSpecific(location) {
+    if (location.indexOf('contact') >= 0) {
+        initializeMap()
+    }
+}
+
+function actLink(ev) {
     var location = ev.currentTarget.href
     if (location.indexOf(window.location.host) >= 0) {
-        $.get(location + '?c', function (data) {
-            mainContainer = $("#mainContainer")
-            mainContainer.html(data)
-            // POST
-            dynamiseLinks(mainContainer)
-            pageSpecific(location)
-        })
+        loadDoc(location)
         return false
     }
 }
 
 function dynamiseLinks(el) {
-    $("a", el).click(loadDoc)
+    $("a", el).click(actLink)
 }
 
-function pageSpecific(location) {
-    if (location.indexOf('contact') >= 0) {
-        initializeMap()
-    }
+function loadDoc(location) {
+    $.get(location + '?c', function (data) {
+        mainContainer = $("#mainContainer")
+        mainContainer.html(data)
+        history.pushState({}, document.title, location)
+        // POST
+        dynamiseLinks(mainContainer)
+        pageSpecific(location)
+    })
+
 }
 
 $(document).ready(function () {
