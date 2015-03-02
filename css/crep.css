@@ -62,6 +62,11 @@ body
     src: url(../fonts/robotaur.ttf);
 }
 
+#mainContainer
+{
+	overflow-x: scroll;
+}
+
 .carousel-inner > .item > img, .carousel-inner > .item > a > img
 {
 	max-height: 600px;
