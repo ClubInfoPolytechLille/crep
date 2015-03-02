@@ -2,8 +2,12 @@
 session_start();
 require_once("creds.php");
 
+$url = $_SERVER["REQUEST_URI"];
+$parsedUrl = parse_url($url);
+$path = $parsedUrl['path'];
+$explodedUrl = explode('/', $path);
+$page = end($explodedUrl);
 
-$page = end(explode('/', parse_url(($_SERVER["REQUEST_URI"]))['path']));
 switch ($page) {
 	case 'home':
 	case 'description':
