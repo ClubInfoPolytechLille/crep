@@ -13,10 +13,11 @@ $page = str_replace('.', '', $page); // TODO Better sanitization
 if ($page == '') {
 	$page = 'home';
 }
-
 $toLoad = "pages/$page.php";
 
-// TODO Test if exists, 404 otherwise
+if (!file_exists($toLoad)) {
+	$toLoad = '404.php';
+}
 
 if (isset($_GET['c'])) {
 	require_once("$toLoad");
