@@ -1,6 +1,28 @@
 <?php
 session_start();
 require_once("creds.php");
+
+
+$page = end(explode('/', parse_url(($_SERVER["REQUEST_URI"]))['path']));
+switch ($page) {
+	case 'home':
+	case 'description':
+	case 'sponsors':
+	case 'schools':
+	case 'contact':
+		$toLoad = $page;
+		break;
+	case '':
+		$toLoad = 'home';
+		break;
+	default:
+		$toLoad = '404';
+		break;
+}
+
+if (isset($_GET['c'])) {
+	require_once("$toLoad.php");
+} else {
 ?>
 <!DOCTYPE>
 <html>
@@ -27,23 +49,7 @@ require_once("creds.php");
 		<div class="col-md-12 center-block">
 			<div class="col-md-12" id="mainContainer">
 <?php
-$page = end(explode('/', $_SERVER["REQUEST_URI"]));
-switch ($page) {
-	case 'home':
-	case 'description':
-	case 'sponsors':
-	case 'schools':
-	case 'contact':
-		$toLoad = $page;
-		break;
-	case '':
-		$toLoad = 'home';
-		break;
-	default:
-		$toLoad = '404';
-		break;
-}
-require_once("$toLoad.php");
+	require_once("$toLoad.php");
 ?>
 			</div>
 		</div>
@@ -52,3 +58,7 @@ require_once("$toLoad.php");
 <?php require_once("footer.php");?>
 	</body>
 </html>
+
+<?php
+}
+?>
