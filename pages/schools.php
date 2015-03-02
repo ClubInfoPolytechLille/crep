@@ -45,9 +45,9 @@ while ($row = mysql_fetch_assoc($resultat))
 	echo '<td>';
 	echo '<p>'.$row['enseignant'].'</p>';
 	echo '</td>';
-	echo '<td>';
-	echo '<p>'.$row['contact'].'</p>';
-	echo '</td>';
+	// echo '<td>';
+	// echo '<p>'.$row['contact'].'</p>';
+	// echo '</td>';
 echo '</tr>';
 }
 
