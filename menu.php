@@ -2,19 +2,19 @@
 	<div class="container-fluid">
 		<ul class="nav navbar-nav">
 			<li>
-				<a href="#home" onClick="loadNewDoc('home.php');">Accueil</a>
+				<a href="home">Accueil</a>
 			</li>
 			<li>
-				<a href="#description" onClick="loadNewDoc('description.php');">Descritption</a>
+				<a href="description">Descritption</a>
 			</li>
 			<li>
-				<a href="#sponsors" onClick="loadNewDoc('sponsors.php');">Sponsors</a>
+				<a href="sponsors">Sponsors</a>
 			</li>
 			<li>
-				<a href="#schools" onClick="loadNewDoc('schools.phpDEBUG');">Ecoles participantes</a>
+				<a href="schools">Ecoles participantes</a>
 			</li>
 			<li>
-				<a href="#contact" onClick="loadNewDoc('contact.php');">Contact</a>
+				<a href="contact">Contact</a>
 			</li>
 		</ul>
 	</div>

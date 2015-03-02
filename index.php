@@ -26,7 +26,25 @@ require_once("creds.php");
 <?php require_once("menu.php");?>
 		<div class="col-md-12 center-block">
 			<div class="col-md-12" id="mainContainer">
-<?php require_once("home.php");?>
+<?php
+$page = end(explode('/', $_SERVER["REQUEST_URI"]));
+switch ($page) {
+	case 'home':
+	case 'description':
+	case 'sponsors':
+	case 'schools':
+	case 'contact':
+		$toLoad = $page;
+		break;
+	case '':
+		$toLoad = 'home';
+		break;
+	default:
+		$toLoad = '404';
+		break;
+}
+require_once("$toLoad.php");
+?>
 			</div>
 		</div>
 &nbsp;
