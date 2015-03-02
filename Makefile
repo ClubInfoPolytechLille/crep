@@ -2,7 +2,7 @@ all: redirs
 	cd img; make
 
 redirs:
-	for i in $$(cd pages; echo *.php); do echo "<?php require('index.php') // AUTOGEN ?>" > $$i; done
+	for i in $$(cd pages; echo *.php); do echo "<?php require('index.php') // AUTOGEN ?>" > $$i; chmod 755 $$i; done
 
 clean:
 	cd img; make clean
