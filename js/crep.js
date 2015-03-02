@@ -7,7 +7,11 @@ function pageSpecific(location) {
 function actLink(ev) {
     var location = ev.currentTarget.href
     if (location.indexOf(window.location.host) >= 0) {
-        loadDoc(location)
+        loadDoc(location, function () {
+            history.pushState({
+                loc: location
+            }, document.title, location)
+        })
         return false
     }
 }
@@ -16,16 +20,19 @@ function dynamiseLinks(el) {
     $("a", el).click(actLink)
 }
 
-function loadDoc(location) {
+function loadDoc(location, callback)) {
+    if (!callback) {
+        callaback = function () {
+            return undefined
+        }
+    }
     $.get(location + '?c', function (data) {
         mainContainer = $("#mainContainer")
         mainContainer.html(data)
-        history.pushState({
-            loc: location
-        }, document.title, location)
-        // POST
+        document.title = location
         dynamiseLinks(mainContainer)
         pageSpecific(location)
+        callback()
     })
 
 }
