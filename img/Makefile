@@ -6,6 +6,7 @@ all: $(GENIMG) $(CMPIMG) mainBgPattern.png
 mainBgPattern.png:
 	wget http://subtlepatterns.com/patterns/low_contrast_linen.png -O $@
 	convert -negate $@ $@
+	convert -channel B -evaluate multiply 1.2 $@ $@
 	optipng -o7 $@
 
 %.png: %.svg
