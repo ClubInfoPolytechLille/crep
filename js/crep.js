@@ -20,7 +20,9 @@ function loadDoc(location) {
     $.get(location + '?c', function (data) {
         mainContainer = $("#mainContainer")
         mainContainer.html(data)
-        history.pushState({}, document.title, location)
+        history.pushState({
+            loc: location
+        }, document.title, location)
         // POST
         dynamiseLinks(mainContainer)
         pageSpecific(location)
@@ -28,9 +30,14 @@ function loadDoc(location) {
 
 }
 
+function historyChange(ev) {
+    loadDoc(ev.state.loc)
+}
+
 $(document).ready(function () {
     dynamiseLinks(document)
     pageSpecific(window.location.href)
+    window.onpopstate = historyChange
 })
 
 function initializeMap() {
