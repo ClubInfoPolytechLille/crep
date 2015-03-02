@@ -1,4 +1,0 @@
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !^.+(css|fonts|img|js).+$
-RewriteCond %{REQUEST_URI} !\.(ico|jpe?g)$
-RewriteRule ^.+$ index.php [L]

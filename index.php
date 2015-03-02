@@ -8,24 +8,16 @@ $path = $parsedUrl['path'];
 $explodedUrl = explode('/', $path);
 $page = end($explodedUrl);
 
-switch ($page) {
-	case 'home':
-	case 'description':
-	case 'sponsors':
-	case 'schools':
-	case 'contact':
-		$toLoad = $page;
-		break;
-	case '':
-		$toLoad = 'home';
-		break;
-	default:
-		$toLoad = '404';
-		break;
+if ($page == '') {
+	$page = 'home';
 }
 
+$toLoad = "pages/$page.php";
+
+// TODO Test if exists, 404 otherwise
+
 if (isset($_GET['c'])) {
-	require_once("$toLoad.php");
+	require_once("$toLoad");
 } else {
 ?>
 <!DOCTYPE>
@@ -53,7 +45,7 @@ if (isset($_GET['c'])) {
 		<div class="col-md-12 center-block">
 			<div class="col-md-12" id="mainContainer">
 <?php
-	require_once("$toLoad.php");
+	require_once("$toLoad");
 ?>
 			</div>
 		</div>
