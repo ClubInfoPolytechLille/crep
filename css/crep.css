@@ -64,7 +64,7 @@ body
 
 #mainContainer
 {
-	overflow-x: scroll;
+	overflow-x: auto;
 }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img
