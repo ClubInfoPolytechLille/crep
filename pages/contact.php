@@ -4,11 +4,14 @@
 </div>
 &nbsp;
 &nbsp;
-<div id="map-canvas"></div>
+<div id="map-canvas">
+    <img src="img/polyMap.png"/>
+</div>
 <script>
 	function initialize()
 	{
 		var mapCanvas = document.getElementById('map-canvas');
+        mapCanvas.innerHTML = ''
         var polytechPos = new google.maps.LatLng(50.6074998, 3.1373338);
 		var mapOptions =
 		{

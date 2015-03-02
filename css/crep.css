@@ -78,6 +78,11 @@ body
 	height: 400px;
 }
 
+#map-canvas > img
+{
+	height: 400px;
+}
+
 #footer
 {
 	margin-bottom: 30px;
