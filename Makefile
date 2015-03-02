@@ -1,8 +1,12 @@
+REDIRS=$(shell cd pages; echo *.php)
+
 all: redirs
 	cd img; make
 
-redirs:
-	for i in $$(cd pages; echo *.php); do echo "<?php require('index.php') // AUTOGEN ?>" > $$i; done
+%.php: pages/%.php
+	echo "<?php require('index.php') // AUTOGEN ?>" > $@
+
+redirs: $(REDIRS)
 
 clean:
 	cd img; make clean
