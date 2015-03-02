@@ -1,19 +1,19 @@
-function file(fichier) {
-    if (window.XMLHttpRequest)
-        xhr_object = new XMLHttpRequest();
-    else if (window.ActiveXObject)
-        xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
-    else
-        return (false);
-    xhr_object.open("GET", fichier, false);
-    xhr_object.send(null);
-    if (xhr_object.readyState == 4)
-        return (xhr_object.responseText);
-    else
-        return (false);
+function loadDoc(ev) {
+    var location = ev.currentTarget.href
+    if (location.indexOf(window.location.host) >= 0) {
+        $.get(location + '?c', function (data) {
+            mainContainer = $("#mainContainer")
+            mainContainer.html(data)
+            dynamiseLinks(mainContainer)
+        })
+        return false
+    }
 }
 
-function loadNewDoc(doc) {
-    $("#mainContainer").html(file(doc));
-    return false
+function dynamiseLinks(el) {
+    $("a", el).click(loadDoc)
 }
+
+$(document).ready(function () {
+    dynamiseLinks(document)
+})
