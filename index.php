@@ -10,7 +10,7 @@ require_once("creds.php");
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="description" content="Site Web de la Coupe de Robotique des Ecoles Primaires">
 		<meta name="author" content="Club Informatique de PolytechLille">
-		<title>Site Web de la Coupe de Robotique des Ecoles Primaires</title>
+		<title>Coupe de Robotique des Ecoles Primaires</title>
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/crep.css">
 		<link rel="shortcut icon" href="favicon.ico"/>
