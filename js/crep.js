@@ -20,7 +20,7 @@ function dynamiseLinks(el) {
     $("a", el).click(actLink)
 }
 
-function loadDoc(location, callback)) {
+function loadDoc(location, callback) {
     if (!callback) {
         callaback = function () {
             return undefined
