@@ -8,6 +8,7 @@ $path = $parsedUrl['path'];
 $explodedUrl = explode('/', $path);
 $page = end($explodedUrl);
 $page = str_replace('.php', '', $page);
+$page = str_replace('.', '', $page); // TODO Better sanitization
 
 if ($page == '') {
 	$page = 'home';
