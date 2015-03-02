@@ -29,7 +29,6 @@ function loadDoc(location, callback) {
     $.get(location + '?c', function (data) {
         mainContainer = $("#mainContainer")
         mainContainer.html(data)
-        document.title = location
         dynamiseLinks(mainContainer)
         pageSpecific(location)
         callback()
