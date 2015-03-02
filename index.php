@@ -7,6 +7,7 @@ $parsedUrl = parse_url($url);
 $path = $parsedUrl['path'];
 $explodedUrl = explode('/', $path);
 $page = end($explodedUrl);
+$page = str_replace('.php', '', $page);
 
 if ($page == '') {
 	$page = 'home';
