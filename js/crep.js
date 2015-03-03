@@ -44,23 +44,35 @@ function loadDoc(location, callback) {
     var eventsLeft = 2
     var html = ''
 
+    var mainContainer = $("#mainContainer")
+    var oldHeight = mainContainer.height()
+
     function events() {
         eventsLeft += -1
         if (eventsLeft <= 0) {
+            // In
+            //  Calculations
             mainContainer.html(html)
-            dynamiseLinks(mainContainer)
-            pageSpecific(location)
+            mainContainer.height('auto')
+            newHeight = mainContainer.height()
+            mainContainer.height(oldHeight)
+            //  Transition
             mainContainer.animate({
-                height: "toggle",
+                height: newHeight,
                 opacity: 1
+            }, 'fast', function () {
+                mainContainer.height('auto')
+                dynamiseLinks(mainContainer)
+                pageSpecific(location)
+                callback()
             })
-            callback()
         }
     }
-    var mainContainer = $("#mainContainer")
+    // Out
+    mainContainer.height(oldHeight)
     mainContainer.animate({
-        height: "toggle",
-        opacity: 0
+        // height: "toggle",
+        opacity: 0.25
     }, 'fast', events)
     $.get(location + '?c', function (data) {
         html = data
