@@ -71,8 +71,7 @@ function loadDoc(location, callback) {
     // Out
     mainContainer.height(oldHeight)
     mainContainer.animate({
-        // height: "toggle",
-        opacity: 0.25
+        opacity: 0
     }, 'fast', events)
     $.get(location + '?c', function (data) {
         html = data
