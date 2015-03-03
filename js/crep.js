@@ -54,7 +54,6 @@ function loadDoc(location, callback) {
                 // height: "toggle",
                 opacity: 1
             })
-            console.debug(callback)
             callback()
         }
     }
