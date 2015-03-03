@@ -51,7 +51,7 @@ function loadDoc(location, callback) {
             dynamiseLinks(mainContainer)
             pageSpecific(location)
             mainContainer.animate({
-                // height: "toggle",
+                height: "toggle",
                 opacity: 1
             })
             callback()
@@ -59,7 +59,7 @@ function loadDoc(location, callback) {
     }
     var mainContainer = $("#mainContainer")
     mainContainer.animate({
-        // height: "toggle",
+        height: "toggle",
         opacity: 0
     }, 'fast', events)
     $.get(location + '?c', function (data) {
