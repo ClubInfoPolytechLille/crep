@@ -37,7 +37,7 @@ if (isset($_GET['c'])) {
 		<link rel="stylesheet" href="css/crep.css">
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		<!-- <script type="text/javascript" src="js/whirlpool.min.js"></script> -->
 		<script type="text/javascript" src="js/crep.js"></script>
 		<!-- <script type="text/javascript" src="js/base64.js"></script> -->
