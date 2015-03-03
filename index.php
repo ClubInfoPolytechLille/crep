@@ -23,7 +23,7 @@ if (isset($_GET['c'])) {
 	require_once("$toLoad");
 } else {
 ?>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Coupe de Robotique des Ecoles Primaires</title>
