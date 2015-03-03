@@ -1,12 +1,30 @@
+function removeAfter(string, pattern) {
+    var n = string.indexOf(pattern);
+    return string.substring(0, n != -1 ? n : string.length);
+}
+
+function pageName(href) {
+    console.debug(href)
+    if (href.indexOf(window.location.host) >= 0) {
+        href = removeAfter(removeAfter(href, '?'), '#')
+        console.debug(href)
+        hrefE = href.split('/')
+        console.debug(hrefE)
+        return hrefE[hrefE.length - 1]
+    }
+    return false
+}
+
 function pageSpecific(location) {
-    if (location.indexOf('contact') >= 0) {
+    if (pageName(location) == 'contact') {
         initializeMap()
     }
 }
 
 function actLink(ev) {
     var location = ev.currentTarget.href
-    if (location.indexOf(window.location.host) >= 0) {
+    var page = pageName(location)
+    if (page && page != pageName(window.location.href)) {
         loadDoc(location, function () {
             history.pushState({
                 loc: location
