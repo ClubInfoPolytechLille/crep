@@ -85,7 +85,8 @@ body
 
 #map-canvas > img
 {
-	height: 400px;
+	max-height: 400px;
+	max-width: 100%;
 }
 
 #footer

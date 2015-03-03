@@ -12,7 +12,7 @@ mainBgPattern.png:
 	optipng -o7 $@
 
 polyMap.png:
-	wget "https://maps.googleapis.com/maps/api/staticmap?center=50.6074998,3.1373338&zoom=16&size=640x400&scale=2&maptype=roadmap&markers=color:red%7Clabel:P%7C50.6074998,3.1373338" -O $@
+	wget "https://maps.googleapis.com/maps/api/staticmap?center=50.6074998,3.1373338&zoom=16&size=640x200&scale=2&maptype=roadmap&markers=color:red%7Clabel:P%7C50.6074998,3.1373338" -O $@
 	optipng -o7 $@
 
 %.png: %.svg
