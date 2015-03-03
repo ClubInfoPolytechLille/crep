@@ -83,7 +83,7 @@ body
 	height: 400px;
 }
 
-#map-canvas > img
+#map-canvas img
 {
 	max-height: 400px;
 	max-width: 100%;
