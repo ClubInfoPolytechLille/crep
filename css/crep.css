@@ -72,7 +72,7 @@ body
 	max-height: 600px;
 }
 
-.jumnotron, #map-canvas
+.jumbotron, #map-canvas
 {
 	margin: 30px inherit;
 }
