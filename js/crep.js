@@ -51,7 +51,7 @@ function loadDoc(location, callback) {
             dynamiseLinks(mainContainer)
             pageSpecific(location)
             mainContainer.animate({
-                height: "toggle",
+                // height: "toggle",
                 opacity: 1
             })
             console.debug(callback)
@@ -60,7 +60,7 @@ function loadDoc(location, callback) {
     }
     var mainContainer = $("#mainContainer")
     mainContainer.animate({
-        height: "toggle",
+        // height: "toggle",
         opacity: 0
     }, 'fast', events)
     $.get(location + '?c', function (data) {
@@ -91,8 +91,21 @@ function initializeMap() {
     }
     var map = new google.maps.Map(mapCanvas, mapOptions)
     var marker = new google.maps.Marker({
-        position: polytechPos,
+        place: {
+            location: polytechPos,
+            query: "Polytech Lille"
+        },
+        attribution: {
+            source: "Coupe de Robotique des Écoles Primaires",
+            webUrl: window.location.host
+        },
         map: map,
         title: "Polytech Lille"
-    });
+    })
+    var infowindow = new google.maps.InfoWindow({
+        content: "<strong>Polytech Lille</strong><br/>Lieux des évènements de la Coupe de Robotique des Écoles Primaires"
+    })
+    marker.addListener('click', function () {
+        infowindow.open(map, this)
+    })
 }
