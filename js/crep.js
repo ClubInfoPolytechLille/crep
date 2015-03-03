@@ -4,12 +4,9 @@ function removeAfter(string, pattern) {
 }
 
 function pageName(href) {
-    console.debug(href)
     if (href.indexOf(window.location.host) >= 0) {
         href = removeAfter(removeAfter(href, '?'), '#')
-        console.debug(href)
         hrefE = href.split('/')
-        console.debug(hrefE)
         return hrefE[hrefE.length - 1]
     }
     return false
