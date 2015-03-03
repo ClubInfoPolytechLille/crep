@@ -1,10 +1,16 @@
-GENIMG=lille1.png polytechlille.png
-CMPIMG=CREP-1.jpg CREP-2.jpg CREP-3.jpg CREP-4.jpg CREP-5.jpg
+VECTORS=$(shell echo *.svg)
+PLACEHOLDERS=200
+CUSTOM=mainBgPattern.png polyMap.png
 
-ALLGEN=$(GENIMG) $(CMPIMG) mainBgPattern.png polyMap.png
+COMPRESSED=$(shell cd orig; echo *.jpg)
+MATRIXED=$(subst svg,png,$(VECTORS))
+PLACEHOLDERS_PNG=$(addprefix ph,$(addsuffix .png,$(PLACEHOLDERS)))
 
-all: $(ALLGEN)
+ALL=$(COMPRESSED) $(MATRIXED) $(PLACEHOLDERS_PNG) $(CUSTOM)
 
+all: $(ALL)
+
+# CUSTOM
 mainBgPattern.png:
 	wget http://subtlepatterns.com/patterns/low_contrast_linen.png -O $@
 	convert -negate $@ $@
@@ -15,12 +21,21 @@ polyMap.png:
 	wget "https://maps.googleapis.com/maps/api/staticmap?center=50.6074998,3.1373338&zoom=16&size=640x200&scale=2&maptype=roadmap&markers=color:red%7Clabel:P%7C50.6074998,3.1373338" -O $@
 	optipng -o7 $@
 
+# PLACEHOLDERS
+ph%.png:
+	wget "http://fakeimg.pl/$(subst ph,,$(subst .png,,$@))/" -O $@
+	optipng -o7 $@
+
+# MATRIXED
+# $(MATRIXED): $(subst png,svg,$@)
 %.png: %.svg
 	convert -background none $< $@
 	optipng -o7 $@
 
+# COMPRESSED
+# $(COMPRESSED): orig/$@
 %.jpg: orig/%.jpg
 	convert -resize x1200 -strip -interlace Plane -gaussian-blur 0.05 -quality 90% $< $@
 
 clean:
-	rm -rf $(ALLGEN)
+	rm -rf $(ALL)
