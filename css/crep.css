@@ -82,6 +82,14 @@ body
 	padding: 30px;
 }
 
+#description img
+{
+	float:left;
+	width:200px;
+	height:200px;
+	margin-right:10px;
+}
+
 #map-canvas
 {
 	width: 100%;
