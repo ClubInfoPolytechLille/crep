@@ -26,18 +26,18 @@ if (isset($_GET['c'])) {
 <!DOCTYPE>
 <html>
 	<head>
+		<title>Coupe de Robotique des Ecoles Primaires</title>
+		<meta name="description" content="Site Web de la Coupe de Robotique des Ecoles Primaires">
+		<meta name="author" content="Club Informatique de Polytech Lille">
+		<link rel="shortcut icon" href="favicon.ico"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="Site Web de la Coupe de Robotique des Ecoles Primaires">
-		<meta name="author" content="Club Informatique de PolytechLille">
-		<title>Coupe de Robotique des Ecoles Primaires</title>
-		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/crep.css">
-		<link rel="shortcut icon" href="favicon.ico"/>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 		<script type="text/javascript" src="js/whirlpool.min.js"></script>
 		<script type="text/javascript" src="js/crep.js"></script>
 		<script type="text/javascript" src="js/base64.js"></script>
