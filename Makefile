@@ -4,7 +4,7 @@ JQUERYVER=2.1.1
 REDIRS=$(shell cd pages; echo *.php)
 BOOTSTRAPNAME=bootstrap-$(BOOTSTRAPVER)-dist
 
-all: redirs bootstrap
+all: redirs $(BOOTSTRAPNEEDED) js/jquery.min.js
 	cd img; make
 
 %.php: pages/%.php
