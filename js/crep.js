@@ -37,16 +37,35 @@ function dynamiseLinks(el) {
 
 function loadDoc(location, callback) {
     if (!callback) {
-        callaback = function () {
+        callback = function () {
             return undefined
         }
     }
+    var eventsLeft = 2
+    var html = ''
+
+    function events() {
+        eventsLeft += -1
+        if (eventsLeft <= 0) {
+            mainContainer.html(html)
+            dynamiseLinks(mainContainer)
+            pageSpecific(location)
+            mainContainer.animate({
+                height: "toggle",
+                opacity: 1
+            })
+            console.debug(callback)
+            callback()
+        }
+    }
+    var mainContainer = $("#mainContainer")
+    mainContainer.animate({
+        height: "toggle",
+        opacity: 0
+    }, 'fast', events)
     $.get(location + '?c', function (data) {
-        mainContainer = $("#mainContainer")
-        mainContainer.html(data)
-        dynamiseLinks(mainContainer)
-        pageSpecific(location)
-        callback()
+        html = data
+        events()
     })
 
 }
