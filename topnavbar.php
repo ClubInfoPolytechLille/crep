@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-header">      
       <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Aller à la page d'accueil" href="home">
-        <!-- <img src="logo-895x1030.jpg" alt="..." height="30" style="display: inline;"> -->
+        <!-- <img src="img/icon.png" alt="Icone de la CREP" height="30" style="display: inline;"> -->
         <span class="hidden-xs">Coupe de Robotique des Ecoles Primaires</span>
         <span class="visible-xs"><img src="img/logo.png" height="20" /></span>
       </a>
