@@ -38,9 +38,9 @@ if (isset($_GET['c'])) {
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-		<script type="text/javascript" src="js/whirlpool.min.js"></script>
+		<!-- <script type="text/javascript" src="js/whirlpool.min.js"></script> -->
 		<script type="text/javascript" src="js/crep.js"></script>
-		<script type="text/javascript" src="js/base64.js"></script>
+		<!-- <script type="text/javascript" src="js/base64.js"></script> -->
 	</head>
 	<body>
 <?php require_once("topnavbar.php");?>
@@ -52,8 +52,6 @@ if (isset($_GET['c'])) {
 ?>
 			</div>
 		</div>
-&nbsp;
-&nbsp;
 <?php require_once("footer.php");?>
 	</body>
 </html>
