@@ -57,9 +57,12 @@ function loadDoc(location, callback) {
             newHeight = mainContainer.height()
             mainContainer.height(oldHeight)
             //  Transition
+            $(document.body).animate({
+                scrollTop: 0
+            })
             mainContainer.animate({
                 height: newHeight,
-                opacity: 1
+                opacity: 1,
             }, 'fast', function () {
                 mainContainer.height('auto')
                 dynamiseLinks(mainContainer)
