@@ -11,7 +11,7 @@
 				<a href="sponsors">Sponsors</a>
 			</li>
 			<li>
-				<a href="schools">Ecoles participantes</a>
+				<a href="schools">Écoles participantes</a>
 			</li>
 			<li>
 				<a href="contact">Contact</a>
