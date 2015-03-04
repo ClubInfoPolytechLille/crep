@@ -21,7 +21,7 @@ js/jquery.min.js:
 
 $(BOOTSTRAPNEEDED):
 	wget https://github.com/twbs/bootstrap/releases/download/v$(BOOTSTRAPVER)/$(BOOTSTRAPNAME).zip -O $(BOOTSTRAPNAME).zip
-	unzip $(BOOTSTRAPNAME).zip $(addprefix $(BOOTSTRAPNAME),$(BOOTSTRAPNEEDED))
+	unzip $(BOOTSTRAPNAME).zip $(addprefix $(BOOTSTRAPNAME)/,$(BOOTSTRAPNEEDED))
 	cp -rf $(BOOTSTRAPNAME)/* .
 	rm -rf $(BOOTSTRAPNAME)*
 
@@ -36,6 +36,6 @@ fonts/robotaur.ttf:
 	unzip robotaur robotaur.ttf -d fonts
 	rm -rf robotaur.zip
 
-clean: bootstrapClean
+clean:
 	cd img; make clean
 	rm -rf $(REDIRS) $(BOOTSTRAPNEEDED) $(addprefix fonts/,$(FONTS)) js/jquery.min.js
