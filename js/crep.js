@@ -57,9 +57,6 @@ function loadDoc(location, callback) {
             newHeight = mainContainer.height()
             mainContainer.height(oldHeight)
             //  Transition
-            $(document.body).animate({
-                scrollTop: 0
-            })
             mainContainer.animate({
                 height: newHeight,
                 opacity: 1,
@@ -72,13 +69,16 @@ function loadDoc(location, callback) {
         }
     }
     // Out
+    $.get(location + '?c', function (data) {
+        html = data
+        events()
+    })
     mainContainer.height(oldHeight)
     mainContainer.animate({
         opacity: 0
     }, 'fast', events)
-    $.get(location + '?c', function (data) {
-        html = data
-        events()
+    $(document.body).animate({
+        scrollTop: 0
     })
 
 }
