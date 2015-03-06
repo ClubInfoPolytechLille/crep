@@ -78,7 +78,7 @@ function loadDoc(location, callback) {
         opacity: 0
     }, 'fast', events)
     $(document.body).animate({
-        scrollTop: 0
+        scrollTop: $('.navbar-lower').height()
     })
 
 }
