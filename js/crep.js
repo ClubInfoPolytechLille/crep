@@ -12,11 +12,19 @@ function pageName(href) {
     return false
 }
 
+function updateScrollData() {
+    history.state.scrollTop = $(document.body).scrollTop()
+    history.replaceState(history.state)
+}
+
 function pageSpecific(location) {
     if (pageName(location) == 'contact') {
         initializeMap()
     }
+    $(document).scroll(updateScrollData)
 }
+
+
 
 function actLink(ev) {
     var location = ev.currentTarget.href
@@ -43,7 +51,6 @@ function loadDoc(location, callback) {
     }
     var eventsLeft = 2
     var html = ''
-
     var mainContainer = $("#mainContainer")
     var oldHeight = mainContainer.height()
 
@@ -69,6 +76,10 @@ function loadDoc(location, callback) {
         }
     }
     // Out
+    $(document).off('scroll', updateScrollData)
+    $(document.body).animate({
+        scrollTop: $('.navbar-lower').height()
+    }, 'fast')
     $.get(location + '?c', function (data) {
         html = data
         events()
@@ -77,19 +88,25 @@ function loadDoc(location, callback) {
     mainContainer.animate({
         opacity: 0
     }, 'fast', events)
-    $(document.body).animate({
-        scrollTop: $('.navbar-lower').height()
-    })
-
 }
 
 function historyChange(ev) {
-    loadDoc(ev.state.loc)
+    loadDoc(ev.state.loc, function () {
+        if (ev.state.scrollTop > $('.navbar-lower').height()) {
+            $(document.body).animate({
+                scrollTop: ev.state.scrollTop
+            }, 'fast')
+        }
+    })
 }
 
 $(document).ready(function () {
-    dynamiseLinks(document)
-    pageSpecific(window.location.href)
+    dynamiseLinks(document.body)
+    var current = window.location.href
+    pageSpecific(current)
+    history.replaceState({
+        loc: current
+    }, document.title, current)
     window.onpopstate = historyChange
 })
 
