@@ -45,6 +45,11 @@ body
 	font-family: linkFont;
 }
 
+.navbar-default .navbar-toggle .icon-bar
+{
+	background-color: #fff;
+}
+
 .navbar-default
 {
 	background-color: #749BD1;

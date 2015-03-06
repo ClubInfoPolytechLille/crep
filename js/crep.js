@@ -108,6 +108,11 @@ $(document).ready(function () {
         loc: current
     }, document.title, current)
     window.onpopstate = historyChange
+    $('.navbar-fixed-top .navbar-toggle').click(function () {
+        $(document.body).animate({
+            scrollTop: 0
+        })
+    })
 })
 
 function initializeMap() {

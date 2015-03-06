@@ -6,6 +6,12 @@
         <span class="hidden-xs">Coupe de Robotique des Ecoles Primaires</span>
         <span class="visible-xs"><img src="img/logo.png" height="20" /></span>
       </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Show menu</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
     </div>
 	<div class="collapse navbar-collapse" style="margin-right: 10px;">
 		<p class="navbar-text navbar-right">
