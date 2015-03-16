@@ -1,9 +1,5 @@
 *.swp
-contact.php
-description.php
-home.php
-schools.php
-sponsors.php
+creds.php
 fonts/*
 */bootstrap*
 *jquery*
