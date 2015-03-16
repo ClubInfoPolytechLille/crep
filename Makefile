@@ -3,8 +3,6 @@ JQUERYVER=2.1.1
 FONTS=robotech-gp.ttf robotaur.ttf
 
 BOOTSTRAPNEEDED=js/bootstrap.min.js css/bootstrap.min.css fonts/glyphicons-halflings-regular.*
-
-REDIRS=$(shell cd pages; echo *.php)
 BOOTSTRAPNAME=bootstrap-$(BOOTSTRAPVER)-dist
 
 all: redirs $(BOOTSTRAPNEEDED) js/jquery.min.js	$(addprefix fonts/,$(FONTS))
@@ -38,4 +36,4 @@ fonts/robotaur.ttf:
 
 clean:
 	cd img; make clean
-	rm -rf $(REDIRS) $(BOOTSTRAPNEEDED) $(addprefix fonts/,$(FONTS)) js/jquery.min.js
+	rm -rf $(BOOTSTRAPNEEDED) $(addprefix fonts/,$(FONTS)) js/jquery.min.js

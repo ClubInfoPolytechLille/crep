@@ -16,7 +16,12 @@ if ($page == '') {
 $toLoad = "pages/$page.php";
 
 if (!file_exists($toLoad)) {
+	header('HTTP/1.1 404 Not Found');
+	header('Status: 404 Not Found'); // FastCGI fix
 	$toLoad = '404.php';
+} else {
+	header('HTTP/1.1 200 OK');
+	header('Status: 200 OK'); // FastCGI fix
 }
 
 if (isset($_GET['c'])) {
