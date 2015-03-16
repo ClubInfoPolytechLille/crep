@@ -5,7 +5,7 @@
 				<a href="home">Accueil</a>
 			</li>
 			<li>
-				<a href="description">Descritption</a>
+				<a href="description">Description</a>
 			</li>
 			<li>
 				<a href="sponsors">Sponsors</a>
