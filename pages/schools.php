@@ -11,8 +11,8 @@ require_once("creds.php");
 					<th>Nom de l'école</th>
 					<th>Circonscription</th>
 					<th>Contact</th>
-					<th>Enseignant</th>
-					<th>Contact</th>
+<!-- 				<th>Enseignant</th>
+					<th>Contact</th> -->
 				</tr>
 			</thead>
 		</div >
@@ -42,9 +42,9 @@ while ($row = mysql_fetch_assoc($resultat))
 	echo '<td>';
 	echo '<p>'.$row['adresse'].'</p>';
 	echo '</td>';
-	echo '<td>';
-	echo '<p>'.$row['enseignant'].'</p>';
-	echo '</td>';
+	// echo '<td>';
+	// echo '<p>'.$row['enseignant'].'</p>';
+	// echo '</td>';
 	// echo '<td>';
 	// echo '<p>'.$row['contact'].'</p>';
 	// echo '</td>';
