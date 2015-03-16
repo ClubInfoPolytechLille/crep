@@ -5,7 +5,7 @@ FONTS=robotech-gp.ttf robotaur.ttf
 BOOTSTRAPNEEDED=js/bootstrap.min.js css/bootstrap.min.css fonts/glyphicons-halflings-regular.*
 BOOTSTRAPNAME=bootstrap-$(BOOTSTRAPVER)-dist
 
-all: redirs $(BOOTSTRAPNEEDED) js/jquery.min.js	$(addprefix fonts/,$(FONTS))
+all: redirs $(BOOTSTRAPNEEDED) js/jquery.min.js	js/konami.js $(addprefix fonts/,$(FONTS))
 	cd img; make
 
 # Redirs
@@ -16,6 +16,10 @@ redirs: $(REDIRS)
 
 js/jquery.min.js:
 	wget http://code.jquery.com/jquery-$(JQUERYVER).min.js -O $@
+
+js/konami.js:
+	wget https://gist.githubusercontent.com/scottstanfield/6450745/raw/ca320e86478f3026e138ab45f36820745bc2e6c0/cornify.js -O $@
+	a=`sed 's/65,65/66,65/g' $@`; echo "$$a" > $@
 
 $(BOOTSTRAPNEEDED):
 	wget https://github.com/twbs/bootstrap/releases/download/v$(BOOTSTRAPVER)/$(BOOTSTRAPNAME).zip -O $(BOOTSTRAPNAME).zip
