@@ -49,6 +49,6 @@
 </div>
 <div class="jumbotron">
   <h1>La CREP, c'est quoi ?</h1>
-  <p>La Coupe Robotique des Ecoles Primaires est un projet qui a vu le jour il y a trois ans, mené par des étudiants de l’école Polytech Lille. Le principe est de faire découvrir les sciences de l’ingénieur à travers un challenge ludique à des élèves de CM2. Depuis la rentrée scolaire 2014-2015, chaque école doit construire un parcours imposé et programmer un robot LEGO® Mindstorms® selon un défi donné aux douze écoles partenaires. Le 9 avril 2015, la grande coupe inter-école sera organisée dans les locaux de Polytech, à l’issu de cette journée, la meilleure école sera récompensée.</p>
+  <p>La Coupe Robotique des Ecoles Primaires est un projet qui a vu le jour il y a trois ans, mené par des étudiants de l’école Polytech Lille. Le principe est de faire découvrir les sciences de l’ingénieur à travers un challenge ludique à des élèves de CM1 et de CM2. Depuis la rentrée scolaire 2014-2015, chaque école doit construire un parcours imposé et programmer un robot LEGO® Mindstorms® selon un défi donné aux douze écoles partenaires. Le 9 avril 2015, la grande coupe inter-école sera organisée dans les locaux de Polytech, à l’issu de cette journée, la meilleure école sera récompensée.</p>
   <p><a class="btn btn-primary btn-lg" href="description" role="button">En savoir plus</a></p>
 </div>
