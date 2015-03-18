@@ -45,6 +45,7 @@ if (isset($_GET['c'])) {
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		<!-- <script type="text/javascript" src="js/whirlpool.min.js"></script> -->
 		<script type="text/javascript" src="js/crep.js"></script>
+		<script type="text/javascript" src="js/konami.js"></script>
 		<!-- <script type="text/javascript" src="js/base64.js"></script> -->
 	</head>
 	<body>
