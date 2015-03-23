@@ -3,13 +3,11 @@
 	<h1>Contact</h1>
 	<p>Pour toute information, vous pouvez contacter Mme Pichonat</p>
 	<p><span class="glyphicon glyphicon-envelope"></span> emmanuelle.pichonat@polytech-lille.fr</p>
-<?php
-/*
+	<p><span class="glyphicon glyphicon-phone-alt"></span> 03 28 76 74 47</p>
 	<p><span class="glyphicon glyphicon-map-marker"></span> Polytech Lille</p>
 	<p>2, Bd Langevin</p>
 	<p>59655 Villeneuve d'Ascq Cedex</p>
-*/?>
-	<p><span class="glyphicon glyphicon-phone-alt"></span> 03 28 76 74 47</p>
+
 </div>
 
 <div id="map-canvas">
