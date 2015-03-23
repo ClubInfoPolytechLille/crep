@@ -2,9 +2,9 @@
 	<img src="img/contact.jpg" align="left" style="margin-right: 20px;">
 	<h1>Contact</h1>
 	<p>Pour toute information, vous pouvez contacter Mme Pichonat</p>
+	<p><span class="glyphicon glyphicon-envelope"></span> emmanuelle.pichonat@polytech-lille.fr</p>
 <?php
 /*
-	<p><span class="glyphicon glyphicon-envelope"></span> emmanuelle.pichonat@polytech-lille.fr</p>
 	<p><span class="glyphicon glyphicon-map-marker"></span> Polytech Lille</p>
 	<p>2, Bd Langevin</p>
 	<p>59655 Villeneuve d'Ascq Cedex</p>
