@@ -14,7 +14,7 @@ try {
         throw new Exception('Selection de la base de donnees impossible');
     }
     mysql_query("SET NAMES 'utf8'");
-    $requete = "SELECT DISTINCT `nom`, `circonscription`, `adresse`, `enseignant`, `contact` FROM `school` ORDER BY nom ASC";
+    $requete = "SELECT DISTINCT `nom`, `circonscription`, `adresse`, `enseignant` FROM `school` ORDER BY nom ASC";
 
     $resultat = mysql_query($requete);
 
@@ -35,7 +35,6 @@ try {
 					<th>Contact</th>
 <?php /*
 					<th>Enseignant</th>
-					<th>Contact</th>
 */ ?>
 				</tr>
 			</thead>
@@ -57,9 +56,6 @@ try {
         
         // echo '<td>';
         // echo '<p>'.$row['enseignant'].'</p>';
-        // echo '</td>';
-        // echo '<td>';
-        // echo '<p>'.$row['contact'].'</p>';
         // echo '</td>';
         echo '</tr>';
     }
