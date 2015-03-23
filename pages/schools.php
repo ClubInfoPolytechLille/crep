@@ -32,7 +32,7 @@ try {
 				<tr> 
 					<th>Nom de l'école</th>
 					<th>Circonscription</th>
-					<th>Contact</th>
+					<th>Adresse</th>
 <?php /*
 					<th>Enseignant</th>
 */ ?>
