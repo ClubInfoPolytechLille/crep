@@ -18,6 +18,10 @@ try {
 
     $resultat = mysql_query($requete);
 
+    if (!$resultat) {
+    	throw new Exception('Résultat vide.');
+    }
+
     mysql_close($link);
 ?>
 
