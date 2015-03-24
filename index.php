@@ -1,5 +1,13 @@
 <?php
+
+if ($_SERVER['HTTP_HOST'] == 'crepbeta.plil.net') {
+	header('HTTP/1.1 307 Temporary Redirect');
+	header('Location: http://crep.plil.net/');
+	exit();
+}
+
 session_start();
+
 require_once("creds.php");
 
 $url = $_SERVER["REQUEST_URI"];
