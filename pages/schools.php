@@ -33,9 +33,7 @@ try {
 					<th>Nom de l'école</th>
 					<th>Circonscription</th>
 					<th>Adresse</th>
-<?php /*
 					<th>Enseignant</th>
-*/ ?>
 				</tr>
 			</thead>
 		</div >
@@ -53,10 +51,9 @@ try {
         echo '<td>';
         echo '<p>' . $row['adresse'] . '</p>';
         echo '</td>';
-        
-        // echo '<td>';
-        // echo '<p>'.$row['enseignant'].'</p>';
-        // echo '</td>';
+        echo '<td>';
+        echo '<p>'.$row['enseignant'].'</p>';
+        echo '</td>';
         echo '</tr>';
     }
 ?>
