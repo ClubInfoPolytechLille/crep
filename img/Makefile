@@ -31,6 +31,9 @@ legoEducation.png:
 	convert $@ -resize x200 $@
 	optipng -o7 $@
 
+polytechInstrumentation2.png: polytechInstrumentation.svg
+	convert -background none $< $@
+
 # DESCRIPTION
 descDescriptif.jpg: orig/descDescriptif.jpg
 	convert $< -set option:size '%[fx:min(w,h)]x%[fx:min(w,h)]' xc:none +swap -gravity center -composite -resize x400 -quality 90% $@
