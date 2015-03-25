@@ -7,6 +7,7 @@ BOOTSTRAPNAME=bootstrap-$(BOOTSTRAPVER)-dist
 
 all: redirs $(BOOTSTRAPNEEDED) js/jquery.min.js	js/konami.js $(addprefix fonts/,$(FONTS))
 	cd img; make
+	cd vid; make
 
 # Redirs
 %.php: pages/%.php
@@ -31,7 +32,7 @@ fonts/robotech-gp.ttf:
 	wget http://dl.dafont.com/dl/?f=robotech_gp -O robotech_gp.zip
 	unzip robotech_gp.zip ROBOTECH\ GP.ttf
 	mv ROBOTECH\ GP.ttf $@
-	rm -rf robotech_gp.zip ROBOTECH\ GP.ttf 
+	rm -rf robotech_gp.zip ROBOTECH\ GP.ttf
 
 fonts/robotaur.ttf:
 	wget http://dl.dafont.com/dl/?f=robotaur -O robotaur.zip
@@ -40,4 +41,5 @@ fonts/robotaur.ttf:
 
 clean:
 	cd img; make clean
+	cd vid; make clean
 	rm -rf $(BOOTSTRAPNEEDED) $(addprefix fonts/,$(FONTS)) js/jquery.min.js
