@@ -21,6 +21,16 @@ polyMap.png:
 	wget "https://maps.googleapis.com/maps/api/staticmap?center=50.6074998,3.1373338&zoom=16&size=640x200&scale=2&maptype=roadmap&markers=color:red%7Clabel:P%7C50.6074998,3.1373338" -O $@
 	optipng -o7 $@
 
+# DESCRIPTION
+descDescriptif.jpg: orig/descDescriptif.jpg
+	convert $< -set option:size '%[fx:min(w,h)]x%[fx:min(w,h)]' xc:none +swap -gravity center -composite -resize x400 -quality 90% $@
+
+descConcept.jpg: orig/descConcept.png
+	convert $< -set option:size '%[fx:min(w,h)]x%[fx:min(w,h)]' xc:none +swap -gravity center -composite -resize x400 -quality 90% $@
+
+descActivites.jpg: orig/descActivites.jpg
+	convert $< -set option:size '%[fx:min(w,h)]x%[fx:min(w,h)]' xc:none +swap -gravity east -composite -resize x400 -quality 90% $@
+
 # PLACEHOLDERS
 ph%.png:
 	wget "http://fakeimg.pl/$(subst ph,,$(subst .png,,$@))/" -O $@
