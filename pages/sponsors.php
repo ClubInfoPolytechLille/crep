@@ -5,13 +5,13 @@
       <div class="col-md-6">
         <ul class="nav nav-pills nav-stacked">
           <h3>LEGO Education</h3>
-          <li><img class="logo" alt="Logo LEGO Education" src="img/legoEducation.png" /></li>
+          <li><a href="http://education.lego.com/"><img class="logo" alt="Logo LEGO Education" src="img/legoEducation.png" /></a></li>
         </ul>
       </div>
       <div class="col-md-6">
         <ul class="nav nav-pills nav-stacked">
           <h3>Polytech Instrumentation</h3>
-          <li><img class="logo" alt="Logo Polytech Instrumentation" src="img/polytechInstrumentation.png" /></li>
+          <li><a href="http://www.polytech-instrumentation.fr/"><img class="logo" alt="Logo Polytech Instrumentation" src="img/polytechInstrumentation.png" /></a></li>
         </ul>
       </div>
     </div>
