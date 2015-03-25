@@ -5,8 +5,10 @@ CUSTOM=mainBgPattern.png polyMap.png
 COMPRESSED=$(shell cd orig; echo *.jpg)
 MATRIXED=$(subst svg,png,$(VECTORS))
 PLACEHOLDERS_PNG=$(addprefix ph,$(addsuffix .png,$(PLACEHOLDERS)))
+DESC=Descriptif Concept Activites
+DESC_JPG=$(addprefix desc,$(addsuffix .jpg,$(DESC)))
 
-ALL=$(COMPRESSED) $(MATRIXED) $(PLACEHOLDERS_PNG) $(CUSTOM)
+ALL=$(COMPRESSED) $(MATRIXED) $(PLACEHOLDERS_PNG) $(DESC_JPG) $(CUSTOM)
 
 all: $(ALL)
 
