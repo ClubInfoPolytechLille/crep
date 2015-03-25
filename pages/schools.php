@@ -3,13 +3,13 @@
 require_once ("creds.php");
 
 try {
-    
+
     $link = @mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__);
 
     if (!$link) {
     	throw new Exception('Impossible de se connecter : ' . mysql_error());
     }
-    
+
     if (!mysql_select_db('crep', $link)) {
         throw new Exception('Selection de la base de donnees impossible');
     }
@@ -29,7 +29,7 @@ try {
 	<table class="table table-striped table-responsive table-bordered">
 		<div class="panel_heading">
 			<thead>
-				<tr> 
+				<tr>
 					<th>Nom de l'école</th>
 					<th>Circonscription</th>
 					<th>Adresse</th>
@@ -39,7 +39,7 @@ try {
 		</div >
 		<tbody>
 <?php
-    
+
     while ($row = mysql_fetch_assoc($resultat)) {
         echo '<tr>';
         echo '<td>';

@@ -7,7 +7,6 @@
 	<p><span class="glyphicon glyphicon-map-marker"></span> Polytech Lille</p>
 	<p>2, Bd Langevin</p>
 	<p>59655 Villeneuve d'Ascq Cedex</p>
-
 </div>
 
 <div id="map-canvas">
