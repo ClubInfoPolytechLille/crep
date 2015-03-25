@@ -96,6 +96,11 @@ body
 	margin-right:10px;
 }
 
+video
+{
+	max-width: 100%;
+}
+
 #map-canvas
 {
 	width: 100%;
