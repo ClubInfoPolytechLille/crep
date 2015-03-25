@@ -23,8 +23,8 @@
     </div>
   <h1>Vidéo de présentation</h1>
   <video poster="vid/pres2014.jpg" controls>
-   <source src="vid/pres2014.webm" type='video/ogg' />
-   <source src="vid/pres2014.ogg" type='video/webm' />
+   <source src="vid/pres2014.ogg" type='video/ogg' />
+   <source src="vid/pres2014.webm" type='video/webm' />
    <source src="vid/pres2014.mp4" type='video/mp4' />
    Il y a une vidéo ici, mais votre navigateur semble trop ancien pour pouvoir la lire :-(
   </video>
