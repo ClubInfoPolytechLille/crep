@@ -26,6 +26,18 @@
    <source src="vid/pres2014.webm" type='video/ogg' />
    <source src="vid/pres2014.ogg" type='video/webm' />
    <source src="vid/pres2014.mp4" type='video/mp4' />
-   Il y a une vidéo ici, mais votre navigateur semble trop ancien pour pouvoir la lire :-(
+   <!-- Fallback en flash pour IE6, IE7, IE8 et Opera -->
+    <object type="application/x-shockwave-flash"
+            data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf"
+            width="1920" height="1080">
+        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+        <param name="allowFullScreen" value="true" />
+        <param name="wmode" value="transparent" />
+        <param name="flashVars"
+               value="config={'playlist':['..%2Fvid%2Fpres2014.jpg',
+                             {'url':'..%2Fvid%2Fpres2014.mp4','autoPlay':false}]}" />
+        <!-- Fallback si Flash ne fonctionne pas -->
+        <img src="vid/pres2014.jpg" width="1920" height="1080" title="Impossible de charger la vidéo" />
+
   </video>
 </div>
