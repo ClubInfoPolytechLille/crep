@@ -115,7 +115,7 @@ body
 	margin-bottom: 30px;
 }
 
-#footer img
+#footer img, .logo
 {
 	max-height: 100px;
 	max-width: 100%;
