@@ -1,5 +1,5 @@
 VECTORS=$(shell echo *.svg)
-CUSTOM=mainBgPattern.png polyMap.png
+CUSTOM=mainBgPattern.png polyMap.png legoEducation.png
 
 COMPRESSED=$(shell cd orig; echo *.jpg)
 MATRIXED=$(subst svg,png,$(VECTORS))
@@ -19,6 +19,11 @@ mainBgPattern.png:
 
 polyMap.png:
 	wget "https://maps.googleapis.com/maps/api/staticmap?center=50.6074998,3.1373338&zoom=16&size=640x200&scale=2&maptype=roadmap&markers=color:red%7Clabel:P%7C50.6074998,3.1373338" -O $@
+	optipng -o7 $@
+
+legoEducation.png:
+	wget "http://mms.businesswire.com/bwapps/mediaserver/ViewMedia?mgid=325079&vid=5&download=1" -O $@
+	convert $@ -resize x200 $@
 	optipng -o7 $@
 
 # DESCRIPTION
