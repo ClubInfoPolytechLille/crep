@@ -1,5 +1,5 @@
 BOOTSTRAPVER=3.3.2
-JQUERYVER=2.1.1
+JQUERYVER=1.11.2
 FONTS=robotech-gp.ttf robotaur.ttf
 
 BOOTSTRAPNEEDED=js/bootstrap.min.js css/bootstrap.min.css fonts/glyphicons-halflings-regular.*
