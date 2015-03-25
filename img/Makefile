@@ -23,6 +23,11 @@ polyMap.png:
 
 legoEducation.png:
 	wget "http://mms.businesswire.com/bwapps/mediaserver/ViewMedia?mgid=325079&vid=5&download=1" -O $@
+	convert $@ -fuzz 10% -transparent white $@
+	# identify -format "%[fx:w]x%[fx:h]" $@
+	convert -size 4500x1084 xc:none -fill white -draw "rectangle 25,25 1050,1050" whitelego.png
+	composite -gravity east $@ whitelego.png $@
+	rm whitelego.png
 	convert $@ -resize x200 $@
 	optipng -o7 $@
 
