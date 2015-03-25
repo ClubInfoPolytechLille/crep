@@ -1,14 +1,12 @@
 VECTORS=$(shell echo *.svg)
-PLACEHOLDERS=200
 CUSTOM=mainBgPattern.png polyMap.png
 
 COMPRESSED=$(shell cd orig; echo *.jpg)
 MATRIXED=$(subst svg,png,$(VECTORS))
-PLACEHOLDERS_PNG=$(addprefix ph,$(addsuffix .png,$(PLACEHOLDERS)))
 DESC=Descriptif Concept Activites
 DESC_JPG=$(addprefix desc,$(addsuffix .jpg,$(DESC)))
 
-ALL=$(COMPRESSED) $(MATRIXED) $(PLACEHOLDERS_PNG) $(DESC_JPG) $(CUSTOM)
+ALL=$(COMPRESSED) $(MATRIXED) $(DESC_JPG) $(CUSTOM)
 
 all: $(ALL)
 
@@ -32,11 +30,6 @@ descConcept.jpg: orig/descConcept.png
 
 descActivites.jpg: orig/descActivites.jpg
 	convert $< -set option:size '%[fx:min(w,h)]x%[fx:min(w,h)]' xc:none +swap -gravity east -composite -resize x400 -quality 90% $@
-
-# PLACEHOLDERS
-ph%.png:
-	wget "http://fakeimg.pl/$(subst ph,,$(subst .png,,$@))/" -O $@
-	optipng -o7 $@
 
 # MATRIXED
 # $(MATRIXED): $(subst png,svg,$@)
