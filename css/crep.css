@@ -98,7 +98,7 @@ video {
   margin-bottom: 30px;
 }
 
-#footer img, .logo {
+#footer img, #sponsors img {
   max-height: 100px;
   max-width: 100%;
 }
