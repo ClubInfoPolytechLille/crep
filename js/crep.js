@@ -20,6 +20,21 @@ function updateScrollData() {
 function pageSpecific(location) {
   if (pageName(location) == 'contact') {
     initializeMap();
+
+    // enhance tel-links (from http://stackoverflow.com/a/18921965/2766106)
+    $("a[href^='tel:']").each(function () {
+      var target = "call-" + this.href.replace(/[^a-z0-9]*/gi, "");
+      var link = this;
+
+      // load in iframe to supress potential errors when protocol is not available
+      $("body").append("<iframe name=\"" + target + "\" style=\"display: none\"></iframe>");
+      link.target = target;
+
+      // replace tel with callto on desktop browsers for skype fallback
+      if (!navigator.userAgent.match(/(mobile)/gi)) {
+        link.href = link.href.replace(/^tel:/, "callto:");
+      }
+    });
   }
   $(document).scroll(updateScrollData);
 }
@@ -30,7 +45,7 @@ function actLink(ev) {
   var location = ev.currentTarget.href;
   var page = pageName(location);
   if (page && page != pageName(window.location.href)) {
-    loadDoc(location, function() {
+    loadDoc(location, function () {
       history.pushState({
         loc: location
       }, document.title, location);
@@ -45,7 +60,7 @@ function dynamiseLinks(el) {
 
 function loadDoc(location, callback) {
   if (!callback) {
-    callback = function() {
+    callback = function () {
       return undefined;
     };
   }
@@ -67,7 +82,7 @@ function loadDoc(location, callback) {
         mainContainer.animate({
           height: newHeight,
           opacity: 1,
-        }, 'fast', function() {
+        }, 'fast', function () {
           mainContainer.height('auto');
           dynamiseLinks(mainContainer);
           pageSpecific(location);
@@ -80,7 +95,7 @@ function loadDoc(location, callback) {
   $(document.body).animate({
     scrollTop: $('.navbar-lower').height()
   }, 'fast');
-  $.get(location + '?c', function(data) {
+  $.get(location + '?c', function (data) {
     html = data;
     events();
   });
@@ -91,7 +106,7 @@ function loadDoc(location, callback) {
 }
 
 function historyChange(ev) {
-  loadDoc(ev.state.loc, function() {
+  loadDoc(ev.state.loc, function () {
     if (ev.state.scrollTop > $('.navbar-lower').height()) {
       $(document.body).animate({
         scrollTop: ev.state.scrollTop
@@ -100,7 +115,7 @@ function historyChange(ev) {
   });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   dynamiseLinks(document.body);
   var current = window.location.href;
   pageSpecific(current);
@@ -108,7 +123,7 @@ $(document).ready(function() {
     loc: current
   }, document.title, current);
   window.onpopstate = historyChange;
-  $('.navbar-fixed-top .navbar-toggle').click(function() {
+  $('.navbar-fixed-top .navbar-toggle').click(function () {
     $(document.body).animate({
       scrollTop: 0
     });
@@ -140,7 +155,7 @@ function initializeMap() {
   var infowindow = new google.maps.InfoWindow({
     content: "<strong>Polytech Lille</strong><br/>Lieux des évènements de la Coupe de Robotique des Écoles Primaires"
   });
-  marker.addListener('click', function() {
+  marker.addListener('click', function () {
     infowindow.open(map, this);
   });
 }
