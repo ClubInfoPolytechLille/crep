@@ -17,8 +17,10 @@
 	  <div class="col-md-3">
       </div>
 	  <div class="col-md-6">
-        <h3>Oxybul</h3>
-        <a href="http://www.oxybul.com" target="_blank"><img class="logo" alt="Logo Oxybul" src="img/oxybul.png" /></a>
+          <ul class="nav nav-pills nav-stacked">
+            <h3>Oxybul</h3>
+            <li><a href="http://www.oxybul.com" target="_blank"><img class="logo" alt="Logo Oxybul" src="img/oxybul.png" /></a></li>
+            </ul>
       </div>
 	  <div class="col-md-3">
       </div>
