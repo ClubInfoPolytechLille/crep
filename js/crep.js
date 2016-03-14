@@ -95,7 +95,7 @@ function loadDoc(location, callback) {
   $(document.body).animate({
     scrollTop: $('.navbar-lower').height()
   }, 'fast');
-  $.get(location + '?c', function (data) {
+  $.get('pages/' + pageName(location) + '.php', function (data) {
     html = data;
     events();
   });
