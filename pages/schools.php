@@ -1,28 +1,22 @@
+<?php
+    require_once("creds.php");
+?>
 <h2>Liste écoles participantes</h2>
 <?php
-require_once ("creds.php");
-
-try {
-
-    $link = @mysql_connect(__MYSQL_HOSTNAME__, __MYSQL_USERNAME__, __MYSQL_PASSWORD__);
-
-    if (!$link) {
-    	throw new Exception('Impossible de se connecter : ' . mysql_error());
-    }
-
-    if (!mysql_select_db('crep', $link)) {
-        throw new Exception('Selection de la base de donnees impossible');
-    }
-    mysql_query("SET NAMES 'utf8'");
-    $requete = "SELECT DISTINCT `nom`, `circonscription`, `adresse`, `enseignant` FROM `school` ORDER BY nom ASC";
-
-    $resultat = mysql_query($requete);
-
-    if (!$resultat) {
-    	throw new Exception('Résultat vide.');
-    }
-
-    mysql_close($link);
+$ecoles = array(
+    array("nom" => "Condorcet", "circonscription" => "Roubaix", "adresse" => "Allée Denieppe, Willems", "enseignant" => "Mme Vernier"),
+    array("nom" => "Cousteau", "circonscription" => "Lambersart", "adresse" => "58 Rue de la Fraternité, Marquette", "enseignant" => "Mr Griffon"),
+    array("nom" => "Curie Ferry", "circonscription" => "Lambersart", "adresse" => "41 Rue Chanzy, Saint André", "enseignant" => "Mme Faidherbe"),
+    array("nom" => "Curie Ferry", "circonscription" => "Lambersart", "adresse" => "41 Rue Chanzy, Saint André", "enseignant" => "Mme Pollet"),
+    array("nom" => "Jeanne de Flandre", "circonscription" => "Lambersart", "adresse" => "Jeanne de Flandre, Marquette", "enseignant" => "Mme Dejardin"),
+    array("nom" => "Jules Ferry", "circonscription" => "Lambersart", "adresse" => "241 Rue des Ecoles, Wambrechies", "enseignant" => "Mme Loonis"),
+    array("nom" => "Les Peupliers", "circonscription" => "Lambersart", "adresse" => "23 Avenue des Peupliers, Saint André", "enseignant" => "Mme Lescaillet"),
+    array("nom" => "Les Peupliers", "circonscription" => "Lambersart", "adresse" => "23 Avenue des Peupliers, Saint André", "enseignant" => "Mme Nicolas"),
+    array("nom" => "Louise de Bettignies", "circonscription" => "Lambersart", "adresse" => "102 Avenue de la Liberté, Lambersart", "enseignant" => "Mme Paris"),
+    array("nom" => "Marie Curie", "circonscription" => "Roubaix", "adresse" => "Rue Lannelongue, Hem", "enseignant" => "Mr Guillain"),
+    array("nom" => "Petit Prince", "circonscription" => "Roubaix", "adresse" => "29 Avenue du Général Leclerc, Lys lez Lannois", "enseignant" => "Mme Delcroix"),
+    array("nom" => "Samain", "circonscription" => "Lambersart", "adresse" => "28 Place de la République, Lambersart", "enseignant" => "Mme Vidal")
+);
 ?>
 
 <center>
@@ -40,7 +34,7 @@ try {
 		<tbody>
 <?php
 
-    while ($row = mysql_fetch_assoc($resultat)) {
+    foreach($ecoles as $row) {
         echo '<tr>';
         echo '<td>';
         echo '<p>' . $row['nom'] . '</p>';
@@ -61,19 +55,3 @@ try {
 		</tbody>
 	</table>
 </center>
-<?php
-}
-catch(Exception $e) {
-?>
-<div class="alert alert-danger" role="alert">
-Impossible d'afficher la liste des écoles participantes.<br/>
-Merci de rééssayer ultérieurement.
-</div>
-<!--
-<?php
-echo $e;
-?>
--->
-<?php
-}
-?>
