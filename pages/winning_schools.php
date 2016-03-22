@@ -7,15 +7,17 @@
 
   <!-- Vainqueurs de 2015 -->
   <div class="row"><div class="col-md-12">
-    <table class="table table-striped table-bordered table-responsive">
+    <table class="table table-bordered table-responsive">
       <tr>
-        <th colspan='2'>CREP du 9 avril 2015</th>
+        <th colspan='3'>CREP du 9 avril 2015</th>
       </tr>
       <tr>
-        <td style="width:60%">École Samain</td>
-        <td style="width:40%">Lambersart</td>
+	<td class="col-md-2">1</td>
+        <td class="col-md-6">École Samain</td>
+        <td class="col-md-4">Lambersart</td>
       </tr>
       <tr>
+	<td>2</td>
         <td>École Condorcet</td>
         <td>Willems</td>
       </tr>
@@ -26,16 +28,17 @@
   
   <!-- Vainqueurs de 2014 -->
   <div class="row"><div class="col-md-12">
-    <table class="table table-striped table-bordered table-responsive">
+    <table class="table table-bordered table-responsive">
       <tr>
-        <th colspan='2'>CREP du 15 mai 2014</th>
-      </tr>
-      <col style="width:80%" />
-      <tr>
-        <td style="width:60%">École Jules Ferry</td>
-        <td style="width:40%">Wambrechies</td>
+        <th colspan='3'>CREP du 15 mai 2014</th>
       </tr>
       <tr>
+        <td class="col-md-2">1</td>
+	<td class="col-md-6">École Jules Ferry</td>
+        <td class="col-md-4">Wambrechies</td>
+      </tr>
+      <tr>
+	<td>2</td>
         <td>École Louise de Bettignies</td>
         <td>Lambersart</td>
       </tr>
