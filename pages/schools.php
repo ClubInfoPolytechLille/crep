@@ -25,7 +25,6 @@ $ecoles = array(
 			<thead>
 				<tr>
 					<th>Nom de l'école</th>
-					<th>Circonscription</th>
 					<th>Adresse</th>
 					<th>Enseignant</th>
 				</tr>
