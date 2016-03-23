@@ -16,19 +16,19 @@ $ecoles = array(
 );
 ?>
 
-<center>
-	<table class="table table-striped table-responsive table-bordered">
-		<div class="panel_heading">
-			<thead>
-				<tr>
-					<th>Nom de l'école</th>
-					<th>Adresse</th>
-					<th>Enseignant</th>
-				</tr>
-			</thead>
-		</div >
-		<tbody>
-<?php
+    <center>
+        <table class="table table-striped table-responsive table-bordered">
+            <div class="panel_heading">
+                <thead>
+                    <tr>
+                        <th>Nom de l'école</th>
+                        <th>Adresse</th>
+                        <th>Enseignant</th>
+                    </tr>
+                </thead>
+            </div>
+            <tbody>
+                <?php
 
     foreach($ecoles as $row) {
         echo '<tr>';
@@ -45,6 +45,6 @@ $ecoles = array(
     }
 ?>
 
-		</tbody>
-	</table>
-</center>
+            </tbody>
+        </table>
+    </center>
