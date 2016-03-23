@@ -1,15 +1,5 @@
 <?php
 
-if ($_SERVER['HTTP_HOST'] == 'crepbeta.plil.net') {
-	header('HTTP/1.1 307 Temporary Redirect');
-	header('Location: http://crep.plil.net/');
-	exit();
-}
-
-session_start();
-
-require_once("creds.php");
-
 $url = $_SERVER["REQUEST_URI"];
 $parsedUrl = parse_url($url);
 $path = $parsedUrl['path'];
@@ -52,10 +42,8 @@ if (isset($_GET['c'])) {
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-		<!-- <script type="text/javascript" src="js/whirlpool.min.js"></script> -->
 		<script type="text/javascript" src="js/crep.js"></script>
 		<script type="text/javascript" src="js/konami.js"></script>
-		<!-- <script type="text/javascript" src="js/base64.js"></script> -->
 	</head>
 	<body>
 <?php require_once("topnavbar.php");?>
