@@ -1,5 +1,5 @@
-BOOTSTRAPVER=3.3.2
-JQUERYVER=1.11.2
+BOOTSTRAPVER=3.3.6
+JQUERYVER=1.12.2
 FONTS=robotech-gp.ttf robotaur.ttf
 
 BOOTSTRAPNEEDED=js/bootstrap.min.js css/bootstrap.min.css fonts/glyphicons-halflings-regular.*
@@ -20,7 +20,7 @@ js/jquery.min.js:
 
 js/konami.js:
 	wget https://gist.githubusercontent.com/scottstanfield/6450745/raw/ca320e86478f3026e138ab45f36820745bc2e6c0/cornify.js -O $@
-	a=`sed 's/65,65/66,65/g' $@`; echo "$$a" > $@
+	a=`sed 's/65,65/66,65/' $@`; echo "$$a" > $@
 
 $(BOOTSTRAPNEEDED):
 	wget https://github.com/twbs/bootstrap/releases/download/v$(BOOTSTRAPVER)/$(BOOTSTRAPNAME).zip -O $(BOOTSTRAPNAME).zip
