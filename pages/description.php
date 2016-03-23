@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <img src="img/descDescriptif.jpg" />
             <br class="visible-xs"/>
-            <p>Depuis la rentrée scolaire 2013-2014, Polytech Lille en partenariat avec plusieurs circonscriptions de l’Académie de Lille (Lambersart, Marquette, Saint-André, Wambrechies) organise une initiation à la robotique en école primaire auprès d’élèves de CM1 et CM2. Cette année, la coupe se déroulera le jeudi 9 avril 2015 dans les locaux de Polytech avec 12 classes participantes et récompensera la meilleure équipe.</p>
+            <p>Depuis la rentrée scolaire 2013-2014, Polytech Lille en partenariat avec plusieurs circonscriptions de l’Académie de Lille (Lambersart, Marquette, Saint-André, Wambrechies) organise une initiation à la robotique en école primaire auprès d’élèves de CM1 et CM2. Cette année, la coupe se déroulera le jeudi 12 mai 2016 dans les locaux de Polytech avec 12 classes participantes et récompensera la meilleure équipe.</p>
         </div>
     </div>
 	<h1>Concept</h1>
