@@ -1,4 +1,4 @@
-v class="container" id="description">
+<div class="container" id="description">
 <h1>Descriptif détaillé</h1>
 <div class="row">
     <div class="col-md-12">

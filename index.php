@@ -22,9 +22,6 @@ if (!file_exists($toLoad)) {
 	header('Status: 200 OK'); // FastCGI fix
 }
 
-if (isset($_GET['c'])) {
-	require_once("$toLoad");
-} else {
 ?>
     <!DOCTYPE html>
     <html>
@@ -42,8 +39,6 @@ if (isset($_GET['c'])) {
         <link rel="stylesheet" href="css/crep.css">
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-        <script type="text/javascript" src="js/crep.js"></script>
         <script type="text/javascript" src="js/konami.js"></script>
     </head>
 
@@ -52,7 +47,7 @@ if (isset($_GET['c'])) {
         <?php require_once("menu.php");?>
         <div class="col-md-12 center-block">
             <div class="col-md-12" id="mainContainer">
-                <?php
+<?php
 	require_once("$toLoad");
 ?>
             </div>
@@ -63,5 +58,4 @@ if (isset($_GET['c'])) {
     </html>
 
     <?php
-}
 ?>
