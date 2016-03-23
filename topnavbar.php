@@ -7,7 +7,7 @@
         <span class="visible-xs"><img src="img/logo.png" height="20" /></span>
       </a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Show menu</span>
+          <span class="sr-only">Voir le menu</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>

@@ -21,6 +21,8 @@
             <p>Tout au long de cette journée, les classes des écoles primaires vont pouvoir s’amuser avec des jeux sportifs sur la pelouse de Polytech et seront accompagnés d’élèves ingénieurs. Le Bureau Des Etudiants (BDE), la Fanfare, la Sono, les Pompoms et bien sur le club Robotech seront de la partie. La CREP sera également l’occasion pour les enfants de visiter l’école Polytech Lille et ses salles de TP. A la fin de la journée, les élèves s’installeront dans l’amphithéâtre Migeon pour la remise des prix.</p>
         </div>
     </div>
+  <br/>
+  <p><a class="btn btn-primary btn-lg" href="description" role="button">L'histoire de la CREP</a></p>
   <h1>Vidéo de présentation</h1>
   <video poster="vid/pres2014.jpg" controls>
    <source src="vid/pres2014.mp4" type='video/mp4' />
